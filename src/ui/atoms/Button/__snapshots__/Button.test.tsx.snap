@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button handles onClick 1`] = `
+<body>
+  <div>
+     
+    <button
+      class="sc-bdnxRM cqugSY"
+      color="buttonSecondary"
+    >
+      Click Me
+    </button>
+     
+  </div>
+</body>
+`;
+
+exports[`Button renders a default button with text 1`] = `
+<body>
+  <div>
+     
+    <button
+      class="sc-bdnxRM cqugSY"
+      color="buttonSecondary"
+    >
+      Click me
+    </button>
+     
+  </div>
+</body>
+`;
+
+exports[`Button renders a primary button 1`] = `
+<body>
+  <div>
+     
+    <button
+      class="sc-bdnxRM cqugSY"
+      color="buttonSecondary"
+    >
+      Click me
+    </button>
+     
+  </div>
+</body>
+`;
