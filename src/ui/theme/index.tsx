@@ -168,7 +168,14 @@ const darkTheme: DefaultTheme = {
 export const buildObjectOrArray = (obj: any) => {
     const result: any = [];
     Object.keys(obj).forEach((objKey) => {
-        result.push(obj[objKey]);
+        /**
+         * By populating an array can cause unwanted side effect:
+         * for example if we write width={1} we expect to be 100%, but
+         * what will happen is that the second item in sizes array will be taken.
+         * Since we use only aliases, we don't need array values
+         * 
+         */
+        // result.push(obj[objKey]);
         // aliases
         (result as any)[objKey] = obj[objKey];
     });
