@@ -1,153 +1,389 @@
+
+  
+
+<div id="top"></div>
+
+  
+
+[![Contributors][contributors-shield]][contributors-url]
+
+[![Forks][forks-shield]][forks-url]
+
+[![Stargazers][stars-shield]][stars-url]
+
+[![Issues][issues-shield]][issues-url]
+
+[![MIT License][license-shield]][license-url]
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+  
+  
+  
+
+<!-- PROJECT LOGO -->
+
+<br  />
+
+<div align="center">
+
+<a href="https://github.com/apperside/react-toolkit">
+
+<img src="images/logo.png" alt="Logo" width="80" height="80">
+
+</a>
+
+  
+
+<h3 align="center">React Toolkit</h3>
+
+  
+
 <p align="center">
-<img
-    width="650"
-    height="450"
-    src="https://raw.githubusercontent.com/ChamsBouzaiene/react-component-lib-boilerplate/main/stories/assets/logo.png"
-  />
-<br />
-Your Fancy new React Library BoilerPlate
-<br /><br />
-<a href="https://github.com/ChamsBouzaiene/react-component-lib-boilerplate/actions/workflows/chromatic.yml">
-<img src="https://github.com/ChamsBouzaiene/react-component-lib-boilerplate/actions/workflows/chromatic.yml/badge.svg?branch=main" />
-</a>
-<a href="https://npm.im/react-component-lib-boilerplate">
-<img src="https://img.shields.io/npm/v/react-component-lib-boilerplate.svg" />
-</a>
-<a href="https://npm.im/react-component-lib-boilerplate">
-<img src="https://badgen.net/npm/dw/react-component-lib-boilerplate" />
-</a>
-<a href="https://github.com/ChamsBouzaiene/react-component-lib-boilerplate/blob/main/LICENSE">
-<img src="https://badgen.now.sh/badge/license/apache2" />
-</a>
-<a href="https://bundlephobia.com/result?p=react-component-lib-boilerplate">
-<img src="https://badgen.net/bundlephobia/minzip/react-component-lib-boilerplate" />
-</a>
-<a href="https://github.com/ChamsBouzaiene/react-component-lib-boilerplate/reaviz">
-<img alt="GitHub stars" src="https://img.shields.io/github/stars/ChamsBouzaiene/react-component-lib-boilerplate?style=social" />
-</a>&nbsp;&nbsp;
-<a href="https://discord.gg/ATTvQVug">
-<img src="https://img.shields.io/discord/844715176895840286?label=discord" />
-</a>
+
+A collection of components, hooks and patterns to easily build react applications
+
+<br  />
+
+<!--<a href="https://github.com/apperside/react-toolkit"><strong>Explore the docs »</strong></a>-->
+
+<br  />
+
+<br  />
+
+<!--<a href="https://github.com/apperside/react-toolkit">View Demo</a>-->
+
+·
+
+<a href="https://github.com/apperside/react-toolkit/issues">Report Bug</a>
+
+·
+
+<a href="https://github.com/apperside/react-toolkit/issues">Request Feature</a>
 
 </p>
 
----
+</div>
 
-React Component Library boilerplate is a component library template that leverages React and github to create
-a custome template for developpers that want to start building their component libraries the easy way
+  
+  
+  
 
-## 🚀 Quick Links
+<!-- TABLE OF CONTENTS 
 
--   Checkout the [npm](https://www.npmjs.com/package/react-component-lib-boilerplate)
--   Checkout the [storybook](https://chamsbouzaiene.github.io/react-component-lib-boilerplate/)
--   Learn more in the [docs](https://chamsbouzaiene.github.io/react-component-lib-boilerplate/?path=/story/docs-getting-started-quick-start--page)
--   Explore the library on [Chroma](https://www.chromatic.com/library?appId=609c917d0b987a00390d989b)
--   Learn about updates from the [changelog](CHANGELOG.md)
+<details>
 
-## 🤔 Why ?
+<summary>Table of Contents</summary>
 
--   Am Lazy ,I built this project so i can have a template to build react component library from it ,I don't want to spend more days configureing linters ci/cd typescript etc..
+<ol>
 
-## 🤓 How to use it
+<li>
 
-### Template
+<a href="#about-the-project">About The Project</a>
 
--   All you have to do to use our fancy template library thanks to github is press the gree button at the top right `Use This Template` make sure to grab `gh-pages` branch like that tada you have the setup with the ci/cd feature and all the goodies.
+<ul>
 
--   you need to setup two secret keys under github secrets for the Github Acions
+<li><a href="#built-with">Built With</a></li>
 
-    -   `CHROMATIC_PROJECT_TOKEN` [Chromatic](https://www.chromatic.com/) project token
-    -   `NPM_TOKEN` [NPM](https://www.npm.com/) project token
+</ul>
 
--   clone the repo and start coding your new fancy component library
+</li>
 
--   don't forget to change the name of the package change the author reset the tags and start publishing your fancy lib
+<li>
 
-### Base Library
+<a href="#getting-started">Getting Started</a>
 
--   The library is exporting sample base components to be used in react project you can test it like this :
-    -   NPM: `npm install react-component-lib-boilerplate --save`
-    -   YARN: `yarn add react-component-lib-boilerplate`
+<ul>
 
-```js
-import { ThemeProvider, Button, Header } from 'react-component-lib-boilerplate';
+<li><a href="#prerequisites">Prerequisites</a></li>
 
-function App() {
-    return (
-        <div className="App">
-            <ThemeProvider>
-                <Button label="hi" />
-                <Header user={{ name: 'chams' }} />
-            </ThemeProvider>{' '}
-        </div>
-    );
-}
+<li><a href="#installation">Installation</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="#usage">Usage</a></li>
+
+<li><a href="#roadmap">Roadmap</a></li>
+
+<li><a href="#contributing">Contributing</a></li>
+
+<li><a href="#license">License</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+
+</ol>
+
+</details>
+
+  
+  -->
+  
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+  
+
+The aim of this project is to put together in a library all the best practices I use to easily build powerfull react applications.
+
+The library at the moment contains just
+
+- some fully themable primitive UI components built on top of styled-system (Box, Row, Col, Button, Text, TextIntput)
+
+- an hook to easyly dispatch thunks with redux and globally keep track of their state
+
+- an hook built on top of react-query to easily work with api requests in fully typed fashion
+
+  
+
+At the moment I am putting all together in this package because, but I am willing to split this 3 concepts (ui utilities, redux utilities and networking utilities) under separated libraries
+
+  
+
+By using this library you will be able to:
+
+* Easily implement responsive and themable layouts without using css in a fully typed fashion
+
+* Easily dispatch redux thunks and globally track their state (loading, success, error)
+
+* Easily implement api requests globally track their state (loading, success, error) and related data
+
+  
+
+A companion node cli is under development
+
+  
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  
+
+### Built With
+
+  
+
+* [Styled System](https://styled-system.com/)
+
+* [Styled Components](https://styled-components.com/)
+
+* [Redux](https://redux.js.org/)
+
+* [Reselect](https://github.com/reduxjs/reselect)
+
+* [React Query](https://react-query.tanstack.com/)
+
+  
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  <!-- GETTING STARTED -->
+
+## Prerequisites
+you need to have the following libraries already installed:
+
+
+* [Styled System](https://styled-system.com/)
+
+* [Styled Components](https://styled-components.com/)
+
+* [Redux](https://redux.js.org/)
+
+* [Reselect](https://github.com/reduxjs/reselect)
+
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+ Install the library from npm registry
+
+  
+
+### Installation
+
+  
+
+This is an example of how to list things you need to use the software and how to install them.
+
+* npm
+
+```sh
+
+npm i apperside/react-toolkit
+
 ```
 
--   As shown above the library is exporting `ThemeProvider` a component that give us the capacity to introduce themes to our base components
+* yarn
 
--   To customize various elements, we use our custom [Styled Components Themes]. This gives you fine grain control over the styles there is to available themes dark and light theme now we are using darktheme as default:
+```sh
 
-    -   `lightTheme`
-    -   `theme`
+yarn add apperside/react-toolkit
 
-You can change the theme using styled-component ThemeProvider
-
-```js
-import { ThemeProvider, Button, Header, theme, lightTheme } from 'react-component-lib-boilerplate';
-
-function App() {
-    return (
-        <ThemeProvider theme={lightTheme}>
-            <Button label={'am themed'} />
-        </ThemeProvider>;
-    );
-}
 ```
 
--   this themes are customisable by the library developper or by the end-user who can extend them as he wish that's why it's a good idea to export a base Theme
 
-## ✨ Features
+  
 
--   Visual Testing / Chromatic :
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-    -   using chromatic you can track version of your storybook test visual changes and access your storybooks
-    -   we are using chromatic application to apply visual testing when the dev create a merge request we deploy the storybook stories to chromatic and we diff the images and we ask for review in order to accept the PR
+  
+  
+  
 
--   Components exampels (base components):
+<!-- USAGE EXAMPLES -->
 
-    -   i have built this component to showcase a pattern for the user all our components are built in typescript we decompose all of them to styled/test/stories/component
+## Usage
 
--   Styled-system / styled-components :
+  
 
-    -   this two libraries are a match made in heaven we are using them to enhance the development experience , using the theme we are able to create props variants that make our style props determinstic.
+TODO
 
--   Testing :
+  
 
-    -   we are using react-testing-library to test most of our components and we advise you to do the same at least test the entry points and add a snapshot
+<!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 
--   Components :
+  
 
-    -   the base components are there to guide the user on how to satisfy our linters typescript
+<p align="right">(<a href="#top">back to top</a>)</p>
 
--   StoryBook :
+  
+  
+  
 
-    -   is a big part of this library we can use it to write custom documentation as well as components documentation we also ship the library with accessibility addons to test the componet accessibility
+<!-- ROADMAP -->
 
--   Prettier/eslint :
+## Roadmap
 
-    -   the library is preconfigured with eslint and prettier for typescript
+  
 
--   Build :
+- [x] Publish initial version
 
-    -   we are using rollup for building the library it's all setup from the start
+- [] Add documentation
 
--   CI/CD (github actions) :
-    -   storyBook (gh-action) builds and deploys the storybook bundle to github pages on user tag
-    -   chromatic (gh-action) builds and deploys the storybook bundle to chromatic and review visual diffs on user pull request and push to main
-    -   publish (gh-action) build and publish the repository , release a new github release version on user push new tag "v\*"
+- [] Split in different packages (ui-core, redux-utils, api-utils)
 
-## TODOs 🤯:
+- [] Much more 😅
 
--   Improve Bundel size
--   Get some sleep
+  
+
+See the [open issues](https://github.com/apperside/react-toolkit/issues) for a full list of proposed features (and known issues).
+
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+  
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+  
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+Don't forget to give the project a star! Thanks again!
+
+  
+
+1. Fork the Project
+
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+
+5. Open a Pull Request
+
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  
+
+<!-- LICENSE -->
+
+## License
+
+  
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  
+
+<!-- CONTACT -->
+
+## Contact
+
+  
+
+Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+
+  
+
+Project Link: [https://github.com/apperside/react-toolkit](https://github.com/apperside/react-toolkit)
+
+  
+  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+  
+  
+  
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/apperside/react-toolkit.svg?style=for-the-badge
+
+[contributors-url]: https://github.com/apperside/react-toolkit/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/apperside/react-toolkit.svg?style=for-the-badge
+
+[forks-url]: https://github.com/apperside/react-toolkit/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/apperside/react-toolkit.svg?style=for-the-badge
+
+[stars-url]: https://github.com/apperside/react-toolkit/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/apperside/react-toolkit.svg?style=for-the-badge
+
+[issues-url]: https://github.com/apperside/react-toolkit/issues
+
+[license-shield]: https://img.shields.io/github/license/apperside/react-toolkit.svg?style=for-the-badge
+
+[license-url]: https://github.com/apperside/react-toolkit/blob/master/LICENSE.txt
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[linkedin-url]: https://linkedin.com/in/othneildrew
+
+[product-screenshot]: images/screenshot.png
