@@ -384,6 +384,6 @@ Project Link: [https://github.com/apperside/react-toolkit](https://github.com/ap
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/simonegaspari
 
 [product-screenshot]: images/screenshot.png
