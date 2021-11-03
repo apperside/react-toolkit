@@ -232,7 +232,17 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
             textInput: mergedTextInput
         }
 
-    }, [theme, baseTheme]);
+    }, [theme, baseTheme,
+        colorsMap,
+        spacesMap,
+        sizesMap,
+        breakpointsMap,
+        fontSizesMap,
+        fontFamiliesMap,
+        bordersMap,
+        borderWidthsMap,
+        borderStylesMap,
+        radiisMap]);
     if (theme) {
         // const merged = deepmerge(baseTheme, theme)
         console.log("feeding theme", mergedTheme);
