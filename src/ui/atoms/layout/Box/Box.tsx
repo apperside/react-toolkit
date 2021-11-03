@@ -1,5 +1,8 @@
 import shouldForwardProp from '@styled-system/should-forward-prop';
 import styled from 'styled-components';
+import { borderRadius, padding } from "styled-system";
+import { WidthProps } from "styled-system";
+import { BackgroundImageProps } from "styled-system";
 import { LayoutProps, FlexboxProps, BorderProps, SpaceProps, MarginProps, ColorProps, BackgroundProps, PositionProps } from "styled-system";
 import { background, border, color, flexbox, layout, margin, position, space } from 'styled-system';
 
@@ -8,29 +11,34 @@ import { background, border, color, flexbox, layout, margin, position, space } f
  * Box is the basic building block.
  * It abstracts a div on web and a View on mobile
  */
-export type BoxProps = LayoutProps &
-    FlexboxProps &
-    BorderProps &
-    SpaceProps &
-    MarginProps &
-    ColorProps &
-    BackgroundProps &
-    PositionProps;
+export type BoxProps =
+    & SpaceProps
+    & WidthProps
+    & ColorProps
+    & BackgroundImageProps
+    & BackgroundProps
+    & LayoutProps
+    & FlexboxProps
+    & BorderProps
+    & FlexboxProps
 
 export const Box = styled.div.withConfig<BoxProps>({
     shouldForwardProp: (prop: string) => ['onLayout'].indexOf(prop) >= 0 || shouldForwardProp(prop),
-}) <BoxProps>`
-    ${layout}
-    ${flexbox}
-    ${border}
-    ${space}
-    ${margin}
-    ${color}
-    ${background}
-    ${position}
-    box-sizing:border-box
-`;
+})<BoxProps>(
+    borderRadius,
+    color,
+    space,
+    color,
+    space,
+    layout,
+    padding,
+    flexbox,
+    background,
+    border,
+    position,
 
+
+);
 
 /**
 * A Box with flex and forced horizontal orientation.

@@ -137,7 +137,7 @@ declare module 'styled-system' {
     : ThemeType[K] extends ObjectOrArray<infer F>
     ? F
     : never;
-  export interface SpaceProps<ThemeType extends Theme = RequiredTheme, TVal = keyof ThemeSpaces | number | CSS.Globals | "auto" | `${number}%` | string> {
+  export interface SpaceProps<ThemeType extends Theme = RequiredTheme, TVal = keyof ThemeSpaces | number | CSS.Globals | "auto" | `${number}%`> {
     /** Margin on top, left, bottom and right */
     m?: ResponsiveValue<TVal, ThemeType>;
     /** Margin on top, left, bottom and right */
