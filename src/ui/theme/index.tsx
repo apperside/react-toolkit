@@ -188,8 +188,7 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         const mergedColors = buildObjectOrArray(deepmerge(colorsMap, theme?.colors ?? {}));
         const mergedSpaces = buildObjectOrArray(deepmerge(spacesMap, theme?.space ?? {}));
         const mergedSizes = buildObjectOrArray(deepmerge(sizesMap, theme?.sizes ?? {}));
-        const sortedBreakpoints = Object.entries(breakpointsMap).sort((b1, b2) => b1[1] - b2[1]);
-        const mergedBreakpoints = buildObjectOrArray(deepmerge(sortedBreakpoints, theme?.breakpoints ?? {}));
+        const mergedBreakpoints = buildObjectOrArray(deepmerge(breakpointsMap, theme?.breakpoints ?? {}));
         const mergedFontSizes = buildObjectOrArray(deepmerge(fontSizesMap, theme?.fontSizes ?? {}));
         const mergedFonts = buildObjectOrArray(deepmerge(fontFamiliesMap, theme?.fonts ?? {}));
         const mergedBorders = buildObjectOrArray(deepmerge(bordersMap, theme?.borders ?? {}));
@@ -229,7 +228,7 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
     }, [theme, baseTheme]);
     if (theme) {
         // const merged = deepmerge(baseTheme, theme)
-        // console.log("feeding theme", mergedTheme);
+        console.log("feeding theme", mergedTheme);
         return <StyledThemeProvider theme={mergedTheme}> {children} </StyledThemeProvider>;
     }
     return <StyledThemeProvider theme={darkTheme}> {children} </StyledThemeProvider>;

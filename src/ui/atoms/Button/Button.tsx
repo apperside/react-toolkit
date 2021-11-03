@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
+import { PropsOf } from "src/typeUtils";
 import { useTheme } from "styled-components";
 import { ButtonProps, ThemedButton } from './Button.styled';
 
 /**
  * Button UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<PropsOf<typeof ThemedButton> & ButtonProps> = ({
     variant = "primary",
     label,
     ...props
