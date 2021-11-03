@@ -8,4 +8,6 @@ import { Box } from '../Box';
  */
 export const Col = styled(Box)<ColProps>({
   boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'column'
 });

@@ -7,8 +7,7 @@ export type GridProps = BoxProps;
 Grid.defaultProps = {
     flexWrap: 'wrap',
     display: 'flex',
-    width: 1,
-    flexDirection: 'column',
+    width: 1
 };
 
 export { Grid };

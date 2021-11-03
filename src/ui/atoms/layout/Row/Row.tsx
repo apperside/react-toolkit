@@ -5,4 +5,6 @@ import { Box } from '../Box';
 
 export const Row = styled(Box)<RowProps>({
     boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'row'
 });

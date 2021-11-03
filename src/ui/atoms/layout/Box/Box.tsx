@@ -29,7 +29,6 @@ export const Box = styled.div.withConfig<BoxProps>({
     ${background}
     ${position}
     box-sizing:border-box
-    display:flex
 `;
 
 
