@@ -1,6 +1,7 @@
 import shouldForwardProp from '@styled-system/should-forward-prop';
 import styled from 'styled-components';
 import { borderRadius, padding } from "styled-system";
+import { width } from "styled-system";
 import { WidthProps } from "styled-system";
 import { BackgroundImageProps } from "styled-system";
 import { LayoutProps, FlexboxProps, BorderProps, SpaceProps, MarginProps, ColorProps, BackgroundProps, PositionProps } from "styled-system";
@@ -21,6 +22,7 @@ export type BoxProps =
     & FlexboxProps
     & BorderProps
     & FlexboxProps
+    & WidthProps
 
 export const Box = styled.div.withConfig<BoxProps>({
     shouldForwardProp: (prop: string) => ['onLayout'].indexOf(prop) >= 0 || shouldForwardProp(prop),
@@ -36,7 +38,7 @@ export const Box = styled.div.withConfig<BoxProps>({
     background,
     border,
     position,
-
+    width
 
 );
 
