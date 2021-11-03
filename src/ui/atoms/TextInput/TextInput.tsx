@@ -2,7 +2,7 @@ import React from 'react';
 import { PropsOf } from "../../../typeUtils";
 import { TextInputProps, ThemedTextInput } from './TextInput.styled';
 
-export const TextInput: React.FC<PropsOf<typeof ThemedTextInput>> = ({
+export const TextInput: React.FC<PropsOf<typeof ThemedTextInput> & TextInputProps> = ({
     variant = "primary",
     ...props
 }) => {
