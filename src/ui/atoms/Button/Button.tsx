@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { PropsOf } from "src/typeUtils";
+import { PropsOf } from "../../../typeUtils";
 import { useTheme } from "styled-components";
 import { ButtonProps, ThemedButton } from './Button.styled';
 
@@ -24,5 +24,7 @@ export const Button: React.FC<PropsOf<typeof ThemedButton> & ButtonProps> = ({
         </ThemedButton >
     )
 };
+
+
 
 export default Button;

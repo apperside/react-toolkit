@@ -19,8 +19,6 @@ export type TextStyleProps =
     & FlexboxProps
     & FontFamilyProps
     & BorderProps
-    & FontFamilyProps
-    & FlexboxProps
 
 export interface TextProps extends TextStyleProps, PropsWithVariant<keyof TextVariants> {
     // children: React.ReactNode;
