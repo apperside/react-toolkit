@@ -81,7 +81,7 @@ declare module 'styled-components' {
         shadows: ObjectOrArray<CSS.Property.BoxShadow, keyof ThemeShadows> | Partial<ThemeShadows>;
         zIndices: ObjectOrArray<CSS.Property.ZIndex, keyof ThemeZIndices> | Partial<ThemeZIndices>;
         breakpoints: ObjectOrArray<string, keyof ThemeBreakpoints> | Partial<ThemeBreakpoints>;
-        mediaQueries: { [size: string]: any };
+        mediaQueries: MediaQueries
         disableStyledSystemCache?: boolean;
     }
 }
