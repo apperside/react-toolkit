@@ -1,14 +1,10 @@
 import * as CSS from "csstype";
-import { DefaultBreakpoints as BP } from "src/ui/theme/styleguide/breakpoints";
 
 
 export * from "./ui";
 export * from "./hooks";
 export * from "./networking"
 export { ThemeProvider } from 'src/ui/theme';
-
-export type DefaultBreakpoints = BP
-
 
 
 declare module "styled-system" {
@@ -53,13 +49,29 @@ declare module "styled-system" {
 		error: string;
 	}
 }
+
+
 declare module "styled-system" {
 
 	export interface ThemeRadii {
+		NONE: CSS.Property.BorderRadius<number>;
+		XS: CSS.Property.BorderRadius<number>
+		S: CSS.Property.BorderRadius<number>
+		M: CSS.Property.BorderRadius<number>
+		L: CSS.Property.BorderRadius<number>
+		XL: CSS.Property.BorderRadius<number>
+		ROUNDED: CSS.Property.BorderRadius<number>
 	}
 }
 
-
+declare module "styled-system" {
+	export interface ThemeShadows {
+		NONE: CSS.Property.BoxShadow | CSS.Property.TextShadow
+		LIGHT: CSS.Property.BoxShadow | CSS.Property.TextShadow
+		MEDIUM: CSS.Property.BoxShadow | CSS.Property.TextShadow
+		STRONG: CSS.Property.BoxShadow | CSS.Property.TextShadow
+	}
+}
 
 
 /**
@@ -110,15 +122,36 @@ declare module "styled-system" {
 		medium: string | number;
 		big: string | number;
 		huge: string | number;
-		button: string | number;
-		stepDescription: string | number;
+	}
 
+	export interface ThemeFontWeights {
+		thin: CSS.Property.FontWeight;
+		normal: CSS.Property.FontWeight;
+		bold: CSS.Property.FontWeight;
+	}
+
+	export interface ThemeLineHeights {
+		small: CSS.Property.LineHeight;
+		normal: CSS.Property.LineHeight;
+		medium: CSS.Property.LineHeight;
+		large: CSS.Property.LineHeight;
+	}
+
+	export interface ThemeLetterSpacings {
+		normal: CSS.Property.LineHeight;
+		medium: CSS.Property.LineHeight;
+		large: CSS.Property.LineHeight;
 	}
 }
 
-// export interface TextVariants {
-// 	regular: VariantProps<TextStyleProps>
-// 	bold: VariantProps<TextStyleProps>
-// 	medium: VariantProps<TextStyleProps>
-// 	black: VariantProps<TextStyleProps>
-// }
+declare module "styled-system" {
+
+	export interface ThemeZIndices {
+		NONE: CSS.Property.ZIndex
+		Z1: CSS.Property.ZIndex
+		Z2: CSS.Property.ZIndex
+		Z3: CSS.Property.ZIndex
+		Z4: CSS.Property.ZIndex
+		Z5: CSS.Property.ZIndex
+	}
+}

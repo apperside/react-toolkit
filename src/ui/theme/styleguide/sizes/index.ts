@@ -14,10 +14,10 @@ export const sizesMap: ThemeSizes = {
 };
 
 
-export const sizes: ObjectOrArray<CSS.Property.Height<number | string> | CSS.Property.Width<number | string>, keyof ThemeSizes> = [];
+// export const sizes: ObjectOrArray<CSS.Property.Height<number | string> | CSS.Property.Width<number | string>, keyof ThemeSizes> = {} as any;
 
-Object.keys(sizesMap).forEach((sizeKey) => {
-  (sizes as (CSS.Property.Height<number | string> | CSS.Property.Width<number | string>)[]).push(sizesMap[sizeKey]);
-  // aliases
-  sizes[sizeKey as keyof ThemeSizes] = sizesMap[sizeKey as keyof ThemeSizes];
-});
+// Object.keys(sizesMap).forEach((sizeKey) => {
+//   (sizes as (CSS.Property.Height<number | string> | CSS.Property.Width<number | string>)[]).push(sizesMap[sizeKey]);
+//   // aliases
+//   sizes[sizeKey as keyof ThemeSizes] = sizesMap[sizeKey as keyof ThemeSizes];
+// });

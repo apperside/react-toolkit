@@ -25,7 +25,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.9
 declare module 'styled-system' {
-
+  import * as CSS from 'csstype';
   // export type UnitOfMeasure = "px" | "em" | "rem" | ""
 
   export interface ThemeBreakpoints {
@@ -85,12 +85,34 @@ declare module 'styled-system' {
   }
   export type ThemeBorderStyleNames = keyof ThemeBorderStyles;
 
+  export interface ThemeShadows {
+    // to be augmented
+  }
+  export type ThemeShadowsNames = keyof ThemeShadows;
+
+  export interface ThemeZIndices {
+    // to be augmented
+  }
+  export type ThemeZIndicesNames = keyof ThemeZIndices;
+
   export interface ThemeFontFamilies {
     // to be augmented
   }
   export type ThemeFontFamilyNames = keyof ThemeFontFamilies;
+  export interface ThemeFontWeights {
+    // to be augmented
+  }
+  export type ThemeFontWeightsNames = keyof ThemeFontWeights;
 
-  import * as CSS from 'csstype';
+  export interface ThemeLineHeights {
+    // to be augmented
+  }
+  export type ThemeLineHeightsNames = keyof ThemeLineHeights;
+
+  export interface ThemeLetterSpacings {
+    // to be augmented
+  }
+  export type ThemeLetterSpacingsNames = keyof ThemeLetterSpacings;
 
   export function get(obj: any, ...paths: Array<string | number>): any;
 
@@ -104,26 +126,26 @@ declare module 'styled-system' {
 
   export type TLengthStyledSystem = string | number;
 
-  export interface Theme<TLength = TLengthStyledSystem, Strict = true> {
-    breakpoints?: ObjectOrArray<number | string | symbol, keyof ThemeBreakpoints>;
-    mediaQueries?: { [size: string]: string };
+  export interface Theme<TLength = TLengthStyledSystem> {
     space?: ObjectOrArray<CSS.Property.Margin<number | string>, keyof ThemeSpaces>;
     fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontSizes>;
-    colors?: ThemeColors;
+    colors?: ObjectOrArray<CSS.Property.Color, keyof ThemeColors>;
     fonts?: ObjectOrArray<CSS.Property.FontFamily, keyof ThemeFontFamilies>;
-    fontWeights?: ObjectOrArray<CSS.Property.FontWeight>;
-    lineHeights?: ObjectOrArray<CSS.Property.LineHeight<TLength>>;
-    letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<TLength>>;
+    fontWeights?: ObjectOrArray<CSS.Property.FontWeight, keyof ThemeFontWeights>;
+    lineHeights?: ObjectOrArray<CSS.Property.LineHeight<TLength>, keyof ThemeLineHeights>;
+    letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<TLength>, keyof ThemeLetterSpacings>;
     sizes?: ObjectOrArray<CSS.Property.HeightProperty | CSS.Width | number, keyof ThemeSizes>;
     borders?: ObjectOrArray<CSS.Property.Border, keyof ThemeBorders>;
-    borderStyles?: ObjectOrArray<CSS.Property.Border, keyof ThemeBorderStyles>;
     borderWidths: ObjectOrArray<CSS.Property.BorderWidth<TLength>, keyof ThemeBorderWidths>;
+    borderStyles?: ObjectOrArray<CSS.Property.Border, keyof ThemeBorderStyles>;
     radii?: ObjectOrArray<CSS.Property.BorderRadius<TLength>, keyof ThemeRadii>;
-    shadows?: ObjectOrArray<CSS.Property.BoxShadow>;
-    zIndices?: ObjectOrArray<CSS.Property.ZIndex>;
-    buttons?: ObjectOrArray<CSS.StandardProperties>;
-    colorStyles?: ObjectOrArray<CSS.StandardProperties>;
-    textStyles?: ObjectOrArray<CSS.StandardProperties>;
+    shadows?: ObjectOrArray<CSS.Property.BoxShadow, keyof ThemeShadows>;
+    zIndices?: ObjectOrArray<CSS.Property.ZIndex, keyof ThemeZIndices>;
+    breakpoints?: ObjectOrArray<number | string | symbol, keyof ThemeBreakpoints>;
+    mediaQueries?: { [size: string]: string };
+    // buttons?: ObjectOrArray<CSS.StandardProperties>;
+    // colorStyles?: ObjectOrArray<CSS.StandardProperties, keyof ThemeColorStyles>;
+    // textStyles?: ObjectOrArray<CSS.StandardProperties, keyof ThemeTextStyles>;
   }
 
   export type RequiredTheme = Required<Theme>;
@@ -1281,7 +1303,7 @@ declare module 'styled-system' {
 
   export const borders: styleFn;
 
-  export interface BorderProps<ThemeType extends Theme = RequiredTheme, TVal = keyof ThemeBorders | string>
+  export interface BorderProps<ThemeType extends Theme = RequiredTheme, TVal = keyof ThemeBorders>
     extends BorderWidthProps<ThemeType>,
     BorderStyleProps<ThemeType>,
     BorderColorProps<ThemeType>,

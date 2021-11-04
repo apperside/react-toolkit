@@ -12,10 +12,11 @@ export const colorsMap: ThemeColors = {
 };
 
 
+
 export const colors: ObjectOrArray<CSS.Property.Color, keyof ThemeColors> = [];
 
 Object.keys(colorsMap).forEach((colorKey) => {
-  (colors as (CSS.Property.Color)[]).push(colorsMap[colorKey]);
+  // (colors as (CSS.Property.Color)[]).push(colorsMap[colorKey]);
   // aliases
   colors[colorKey as keyof ThemeColors] = colorsMap[colorKey as keyof ThemeColors];
 });

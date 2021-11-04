@@ -7,19 +7,18 @@ import { ObjectOrArray } from "styled-system";
 
 
 
-export interface DefaultBreakpoints extends ThemeBreakpoints { }
 /**
  * The logic is mobile first, so the first breakpoint is alway from 0 to the first declared one
  */
-export const breakpointsMap: DefaultBreakpoints = {
-  default: "600px",
+export const breakpointsMap: ThemeBreakpoints = {
+  default: "320px",
   // mobileS: "0px",
   // mobileM: "375px",
   // mobileL: "425px",
-  tablet: "1024px",
+  tablet: "425px",
   // laptop: "1024px",
   // laptopL: "1440px",
-  desktop: "2048px",
+  desktop: "1024px",
   // desktopL: "2560px"
 };
 
@@ -32,16 +31,16 @@ export const breakpointsMap: DefaultBreakpoints = {
  */
 // export type BreakpointsThemeType = string[] & { [key in keyof ThemeBreakpoints]?: string }
 
-const breakpoints: ObjectOrArray<number | string | symbol, keyof DefaultBreakpoints> = [];
+const breakpoints: ObjectOrArray<string, keyof ThemeBreakpoints> = [];
 
-type MediaQueryMap = { [key in keyof DefaultBreakpoints]: string };
+type MediaQueryMap = { [key in keyof ThemeBreakpoints]: string };
 const mediaqueries: MediaQueryMap = {} as MediaQueryMap;
 /**
  * generate breakpoints in mobile first approach
  */
 
 Object.keys(breakpointsMap).forEach((breakpointKey) => {
-  const typedKey = breakpointKey as keyof DefaultBreakpoints;
+  const typedKey = breakpointKey as keyof ThemeBreakpoints;
   breakpoints.push(breakpointsMap[typedKey]);
   // breakpoint aliases
 

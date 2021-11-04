@@ -2,19 +2,39 @@ import * as CSS from "csstype";
 import deepmerge from "deepmerge";
 import React, { useMemo } from "react";
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { ObjectOrArray, Theme, ThemeBorders, ThemeBorderStyles, ThemeBreakpoints, ThemeColors, ThemeFontFamilies, ThemeFontSizes, ThemeRadii, ThemeSizes, ThemeSpaces } from "styled-system";
+import { ObjectOrArray, Theme, ThemeBorders, ThemeBorderStyles, ThemeBorderWidths, ThemeBreakpoints, ThemeColors, ThemeFontFamilies, ThemeFontSizes, ThemeFontWeights, ThemeLetterSpacings, ThemeLineHeights, ThemeRadii, ThemeShadows, ThemeSizes, ThemeSpaces, ThemeZIndices } from "styled-system";
 import { ButtonTheme, buttonTheme } from "../atoms/Button/Button.theme";
 import { TextTheme, textTheme } from "../atoms/Text/Text.theme";
 import { textInputTheme, TextInputTheme } from "../atoms/TextInput/TextInput.theme";
-import { borderWidthsMap, bordersMap, borderStylesMap } from "./styleguide/borders";
-import breakpoints, { breakpointsMap } from "./styleguide/breakpoints";
+import { bordersMap, borderStylesMap, borderWidthsMap } from "./styleguide/borders";
+import breakpoints, { breakpointsMap, mediaQuery } from "./styleguide/breakpoints";
 import { colors, colorsMap } from "./styleguide/colors";
 import { radiisMap } from "./styleguide/radii";
-import { sizes, sizesMap } from "./styleguide/sizes";
-import { spaces, spacesMap } from "./styleguide/spaces";
-import { fontSizes, fonts, fontSizesMap, fontFamiliesMap } from "./styleguide/typography";
-export * from "./styleguide/breakpoints"
+import { shadowsMap } from "./styleguide/shadows";
+import { sizesMap } from "./styleguide/sizes";
+import { spacesMap } from "./styleguide/spaces";
+import { fontSizesMap, fontsMap, fontWeightsMap, letterSpacingsMap, lineHeightsMap } from "./styleguide/typography";
+import { zIndicesMap } from "./styleguide/zIndices";
+export * from "./styleguide/breakpoints";
+export { darkTheme as default, lightTheme };
 export type PropsWithVariant<T> = { variant?: T }
+
+export const buildObjectOrArray = (obj: any) => {
+    const result: any = [];
+    Object.keys(obj).forEach((objKey) => {
+        /**
+         * By populating an array can cause unwanted side effect:
+         * for example if we write width={1} we expect to be 100%, but
+         * what will happen is that the second item in sizes array will be taken.
+         * Since we use only aliases, we don't need array values
+         * 
+         */
+        // result.push(obj[objKey]);
+        // aliases
+        (result as any)[objKey] = obj[objKey];
+    });
+    return result
+}
 
 export interface CustomComponentsTheme {
     button: ButtonTheme
@@ -33,30 +53,61 @@ declare module 'styled-components' {
     // }
     export interface DefaultTheme extends Theme, CustomComponentsTheme {
         name: string
-        //override to remove optionality
-        breakpoints: Partial<ObjectOrArray<number | string | symbol, keyof ThemeBreakpoints>>;
-        mediaQueries?: { [size: string]: string };
-        space: Partial<ObjectOrArray<CSS.Property.Margin<number | string>, keyof ThemeSpaces>>;
-        fontSizes?: Partial<ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontSizes>>;
-        colors: Partial<ObjectOrArray<CSS.Property.Color, keyof ThemeColors>>
-        fonts?: Partial<ObjectOrArray<CSS.Property.FontFamily, keyof ThemeFontFamilies>>;
-        fontWeights?: Partial<ObjectOrArray<CSS.Property.FontWeight>>;
-        sizes: Partial<ObjectOrArray<CSS.Property.Height<number | string> | CSS.Property.Width<number | string>, keyof ThemeSizes>>;
-        borders?: Partial<ObjectOrArray<CSS.Property.Border, keyof ThemeBorders>>;
-        borderStyles?: Partial<ObjectOrArray<CSS.Property.Border, keyof ThemeBorderStyles>>;
-        shadows?: Partial<ObjectOrArray<CSS.Property.BoxShadow>>;
-        radii?: Partial<ObjectOrArray<CSS.Property.BorderRadius<any>, keyof ThemeRadii>>;
-        zIndices?: Partial<ObjectOrArray<CSS.Property.ZIndex>>;
-        colorStyles?: Partial<ObjectOrArray<CSS.StandardProperties>>;
-        textStyles?: Partial<ObjectOrArray<CSS.StandardProperties>>;
+        space: ObjectOrArray<CSS.Property.Margin<number | string>, keyof ThemeSpaces> | Partial<ThemeSpaces>;
+        fontSizes: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontSizes> | Partial<ThemeFontSizes>;
+        colors: ObjectOrArray<CSS.Property.Color, keyof ThemeColors> | Partial<ThemeColors>;
+        fonts: ObjectOrArray<CSS.Property.FontFamily, keyof ThemeFontFamilies> | Partial<ThemeFontFamilies>;
+        fontWeights: ObjectOrArray<CSS.Property.FontWeight, keyof ThemeFontWeights> | Partial<ThemeFontWeights>;
+        lineHeights: ObjectOrArray<CSS.Property.LineHeight, keyof ThemeLineHeights> | Partial<ThemeLineHeights>;
+        letterSpacings: ObjectOrArray<CSS.Property.LetterSpacing, keyof ThemeLetterSpacings> | Partial<ThemeLetterSpacings>;
+        sizes: Partial<ObjectOrArray<CSS.Property.Height<number | string> | CSS.Property.Width<number | string>, keyof ThemeSizes>> | Partial<ThemeSizes>;
+        borders: ObjectOrArray<CSS.Property.Border, keyof ThemeBorders> | Partial<ThemeBorders>;
+        borderWidths: ObjectOrArray<CSS.Property.BorderWidth, keyof ThemeBorderWidths> | Partial<ThemeBorderWidths>;
+        borderStyles: ObjectOrArray<CSS.Property.Border, keyof ThemeBorderStyles> | Partial<ThemeBorderStyles>;
+        radii: ObjectOrArray<CSS.Property.BorderRadius, keyof ThemeRadii> | Partial<ThemeRadii>;
+        shadows: ObjectOrArray<CSS.Property.BoxShadow, keyof ThemeShadows> | Partial<ThemeShadows>;
+        zIndices: ObjectOrArray<CSS.Property.ZIndex, keyof ThemeZIndices> | Partial<ThemeZIndices>;
+        breakpoints: ObjectOrArray<string, keyof ThemeBreakpoints> | Partial<ThemeBreakpoints>;
+        mediaQueries: { [size: string]: any };
         disableStyledSystemCache?: boolean;
-
     }
 }
 
+export const baseTheme: DefaultTheme = {
+    name: "default",
+    space: buildObjectOrArray(spacesMap),
+    fontSizes: buildObjectOrArray(fontSizesMap),
+    colors: buildObjectOrArray(colorsMap),
+    fonts: buildObjectOrArray(fontsMap),
+    fontWeights: buildObjectOrArray(fontWeightsMap),
+    lineHeights: buildObjectOrArray(lineHeightsMap),
+    letterSpacings: buildObjectOrArray(letterSpacingsMap),
+    sizes: buildObjectOrArray(sizesMap),
+    borders: buildObjectOrArray(bordersMap),
+    borderWidths: buildObjectOrArray(borderWidthsMap),
+    borderStyles: buildObjectOrArray(borderStylesMap),
+    radii: buildObjectOrArray(radiisMap),
+    shadows: buildObjectOrArray(shadowsMap),
+    zIndices: buildObjectOrArray(zIndicesMap),
+    // space: buildObjectOrArray(spacesMap),
+    breakpoints,
+    mediaQueries: mediaQuery,
+    // fontSizes:buildObjectOrArray(fontSizesMap),
+    // fonts,
+    // sizes,
+    // borderWidths,
+    // borders,
+    // colors,
+    // // disableStyledSystemCache: true,
+    button: buttonTheme,
+    text: textTheme,
+    textInput: textInputTheme
+};
+
 export interface CustomTheme extends DefaultTheme {
 
-}type DeepPartial<T> = {
+}
+type DeepPartial<T> = {
     [P in keyof T]?: DeepPartial<T[P]>;
 };
 export const customTheme: DeepPartial<DefaultTheme> = {
@@ -83,21 +134,7 @@ export const customTheme: DeepPartial<DefaultTheme> = {
         }
     }
 }
-export const baseTheme: DefaultTheme = {
-    name: "default",
-    space: spaces,
-    breakpoints,
-    fontSizes,
-    fonts,
-    sizes,
-    borderWidths: borderWidthsMap,
-    borders: bordersMap,
-    colors,
-    disableStyledSystemCache: true,
-    button: buttonTheme,
-    text: textTheme,
-    textInput: textInputTheme
-};
+
 
 const lightTheme: DefaultTheme = {
     ...baseTheme,
@@ -165,22 +202,7 @@ const darkTheme: DefaultTheme = {
     // },
 };
 
-export const buildObjectOrArray = (obj: any) => {
-    const result: any = [];
-    Object.keys(obj).forEach((objKey) => {
-        /**
-         * By populating an array can cause unwanted side effect:
-         * for example if we write width={1} we expect to be 100%, but
-         * what will happen is that the second item in sizes array will be taken.
-         * Since we use only aliases, we don't need array values
-         * 
-         */
-        // result.push(obj[objKey]);
-        // aliases
-        (result as any)[objKey] = obj[objKey];
-    });
-    return result
-}
+
 
 interface ThemeProviderPropsProps {
     children: React.ReactNode;
@@ -197,36 +219,50 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         const mergedSizes = buildObjectOrArray(deepmerge(sizesMap, theme?.sizes ?? {}));
         const mergedBreakpoints = buildObjectOrArray(deepmerge(breakpointsMap, theme?.breakpoints ?? {}));
         const mergedFontSizes = buildObjectOrArray(deepmerge(fontSizesMap, theme?.fontSizes ?? {}));
-        const mergedFonts = buildObjectOrArray(deepmerge(fontFamiliesMap, theme?.fonts ?? {}));
+        const mergedFonts = buildObjectOrArray(deepmerge(fontsMap, theme?.fonts ?? {}));
         const mergedBorders = buildObjectOrArray(deepmerge(bordersMap, theme?.borders ?? {}));
         const mergedBorderWidths = buildObjectOrArray(deepmerge(borderWidthsMap, theme?.borderWidths ?? {}));
         const mergedBordersStyles = buildObjectOrArray(deepmerge(borderStylesMap, theme?.borderStyles ?? {}));
         const mergedRadiis = buildObjectOrArray(deepmerge(radiisMap, theme?.radii ?? {}));
+        const mergedFontWeights = buildObjectOrArray(deepmerge(fontWeightsMap, theme?.fontWeights ?? {}));
+        const mergedLineHeights = buildObjectOrArray(deepmerge(lineHeightsMap, theme?.lineHeights ?? {}));
+        const mergedLetterSpacings = buildObjectOrArray(deepmerge(radiisMap, theme?.radii ?? {}));
+        const mergedShadows = buildObjectOrArray(deepmerge(shadowsMap, theme?.shadows ?? {}));
+        const mergedzIndices = buildObjectOrArray(deepmerge(zIndicesMap, theme?.zIndices ?? {}));
 
         const mergedButton = deepmerge(buttonTheme, theme?.button ?? {});
         const mergedText = deepmerge(textTheme, theme?.text ?? {});
         const mergedTextInput = deepmerge(textInputTheme, theme?.textInput ?? {});
 
-        // fontWeights?: Partial<ObjectOrArray<CSS.Property.FontWeight>>;
-        // shadows?: Partial<ObjectOrArray<CSS.Property.BoxShadow>>;
-        // zIndices?: Partial<ObjectOrArray<CSS.Property.ZIndex>>;
-        // colorStyles?: Partial<ObjectOrArray<CSS.StandardProperties>>;
-        // textStyles?: Partial<ObjectOrArray<CSS.StandardProperties>>;
 
 
 
         return {
             ...baseTheme,
             breakpoints: mergedBreakpoints,
-            colors: mergedColors,
             space: mergedSpaces,
-            sizes: mergedSizes,
             fontSizes: mergedFontSizes,
+            colors: mergedColors,
             fonts: mergedFonts,
+            fontWeights: mergedFontWeights,
+            lineHeights: mergedLineHeights,
+            letterSpacings: mergedLetterSpacings,
+            sizes: mergedSizes,
             borders: mergedBorders,
             borderWidths: mergedBorderWidths,
             borderStyles: mergedBordersStyles,
             radii: mergedRadiis,
+            shadows: mergedShadows,
+            zIndices: mergedzIndices,
+            // colors: mergedColors,
+            // space: mergedSpaces,
+            // sizes: mergedSizes,
+            // fontSizes: mergedFontSizes,
+            // fonts: mergedFonts,
+            // borders: mergedBorders,
+            // borderWidths: mergedBorderWidths,
+            // borderStyles: mergedBordersStyles,
+            // radii: mergedRadiis,
             button: mergedButton,
             text: mergedText,
             textInput: mergedTextInput
@@ -238,7 +274,7 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         sizesMap,
         breakpointsMap,
         fontSizesMap,
-        fontFamiliesMap,
+        fontsMap,
         bordersMap,
         borderWidthsMap,
         borderStylesMap,
@@ -251,4 +287,4 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
     return <StyledThemeProvider theme={darkTheme}> {children} </StyledThemeProvider>;
 };
 
-export { darkTheme as default, lightTheme };
+
