@@ -1,4 +1,4 @@
-import { VariantProps } from "src/ui/theme";
+import { VariantProps } from "../../theme";
 import { ButtonStyleProps } from "./Button.styled";
 
 export interface ButtonVariants {

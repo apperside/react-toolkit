@@ -1,4 +1,4 @@
-import { VariantProps } from "src/ui/theme";
+import { VariantProps } from "../../theme";
 import { TextStyleProps } from "./Text.styled";
 
 
