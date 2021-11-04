@@ -15,9 +15,9 @@ export const borderStylesMap: ThemeBorderStyles = {
 };
 
 
-export const borders: ObjectOrArray<CSS.Property.Border, keyof ThemeBorders> = []
+// export const borders: ObjectOrArray<CSS.Property.Border, keyof ThemeBorders> = []
 
-export const borderWidths: ObjectOrArray<CSS.Property.BorderWidth, keyof ThemeBorderWidths> = [];
+// export const borderWidths: ObjectOrArray<CSS.Property.BorderWidth, keyof ThemeBorderWidths> = [];
 
-export const borderStyles: ObjectOrArray<CSS.Property.BorderStyle, keyof ThemeBorderStyles> = [];
+// export const borderStyles: ObjectOrArray<CSS.Property.BorderStyle, keyof ThemeBorderStyles> = [];
 

@@ -7,8 +7,8 @@ import { ButtonTheme, buttonTheme } from "../atoms/Button/Button.theme";
 import { TextTheme, textTheme } from "../atoms/Text/Text.theme";
 import { textInputTheme, TextInputTheme } from "../atoms/TextInput/TextInput.theme";
 import { bordersMap, borderStylesMap, borderWidthsMap } from "./styleguide/borders";
-import breakpoints, { breakpointsMap, mediaQuery } from "./styleguide/breakpoints";
-import { colors, colorsMap } from "./styleguide/colors";
+import breakpoints, { baseMediaQueries, breakpointsMap, MediaQueries } from "./styleguide/breakpoints";
+import { colorsMap } from "./styleguide/colors";
 import { radiisMap } from "./styleguide/radii";
 import { shadowsMap } from "./styleguide/shadows";
 import { sizesMap } from "./styleguide/sizes";
@@ -34,6 +34,19 @@ export const buildObjectOrArray = (obj: any) => {
         (result as any)[objKey] = obj[objKey];
     });
     return result
+}
+
+export const buildMediaQueries = (breakpoints: ThemeBreakpoints): MediaQueries => {
+    console.log("building mediaqueris", breakpoints)
+    const mediaqueries: MediaQueries = {} as MediaQueries;
+    Object.keys(breakpoints).forEach((breakpointKey) => {
+        const typedKey = breakpointKey as keyof ThemeBreakpoints;
+        mediaqueries[typedKey] = `@media screen and (min-width:${breakpoints[typedKey]})`;
+    });
+    return {
+        ...baseMediaQueries,
+        ...mediaqueries
+    }
 }
 
 export interface CustomComponentsTheme {
@@ -91,7 +104,8 @@ export const baseTheme: DefaultTheme = {
     zIndices: buildObjectOrArray(zIndicesMap),
     // space: buildObjectOrArray(spacesMap),
     breakpoints,
-    mediaQueries: mediaQuery,
+    mediaQueries: buildMediaQueries(breakpointsMap),
+    // mediaQueries: mediaQuery,
     // fontSizes:buildObjectOrArray(fontSizesMap),
     // fonts,
     // sizes,
@@ -210,9 +224,13 @@ interface ThemeProviderPropsProps {
 }
 
 
+
+
 export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, theme }) => {
+
     // console.log("render theme provider")
     const mergedTheme = useMemo(() => {
+
 
         const mergedColors = buildObjectOrArray(deepmerge(colorsMap, theme?.colors ?? {}));
         const mergedSpaces = buildObjectOrArray(deepmerge(spacesMap, theme?.space ?? {}));
@@ -234,8 +252,8 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         const mergedText = deepmerge(textTheme, theme?.text ?? {});
         const mergedTextInput = deepmerge(textInputTheme, theme?.textInput ?? {});
 
-
-
+        const mediaQueries = buildMediaQueries({ ...breakpointsMap, ...theme?.breakpoints ?? {} })
+        console.log("mediaqueries are", mediaQueries)
 
         return {
             ...baseTheme,
@@ -263,6 +281,7 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
             // borderWidths: mergedBorderWidths,
             // borderStyles: mergedBordersStyles,
             // radii: mergedRadiis,
+            mediaQueries,
             button: mergedButton,
             text: mergedText,
             textInput: mergedTextInput
@@ -279,12 +298,8 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         borderWidthsMap,
         borderStylesMap,
         radiisMap]);
-    if (theme) {
-        // const merged = deepmerge(baseTheme, theme)
-        console.log("feeding theme", mergedTheme);
-        return <StyledThemeProvider theme={mergedTheme}> {children} </StyledThemeProvider>;
-    }
-    return <StyledThemeProvider theme={darkTheme}> {children} </StyledThemeProvider>;
+    console.log("feeding theme", mergedTheme)
+    return <StyledThemeProvider theme={mergedTheme}> {children} </StyledThemeProvider>;
 };
 
 

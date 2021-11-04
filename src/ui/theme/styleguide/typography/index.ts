@@ -20,7 +20,7 @@ export const fontSizesMap: ThemeFontSizes = {
   huge: 50,
 };
 
-export const fontSizes: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontSizes> = [];
+// export const fontSizes: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontSizes> = [];
 
 export const fontWeightsMap: ThemeFontWeights = {
   thin: 200,
@@ -28,7 +28,7 @@ export const fontWeightsMap: ThemeFontWeights = {
   bold: 700
 };
 
-export const fontWeights: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontWeights> = [];
+// export const fontWeights: ObjectOrArray<CSS.Property.FontSize<number>, keyof ThemeFontWeights> = [];
 
 export const lineHeightsMap: ThemeLineHeights = {
   small: 0.8,
@@ -45,4 +45,4 @@ export const letterSpacingsMap: ThemeLetterSpacings = {
   large: "0.4rem"
 };
 
-export const letterSpacings: ObjectOrArray<CSS.Property.LineHeight, keyof ThemeFontWeights> = [];
+// export const letterSpacings: ObjectOrArray<CSS.Property.LineHeight, keyof ThemeFontWeights> = [];

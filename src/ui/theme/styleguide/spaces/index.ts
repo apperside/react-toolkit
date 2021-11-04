@@ -13,7 +13,7 @@ export const spacesMap: ThemeSpaces = {
   XXL: 64
 };
 
-export const spaces: ObjectOrArray<CSS.Property.Margin<number | string>, keyof ThemeSpaces> = [];
+// export const spaces: ObjectOrArray<CSS.Property.Margin<number | string>, keyof ThemeSpaces> = [];
 
 // Object.keys(spacesMap).forEach((spaceKey) => {
 //   // (spaces as (CSS.Property.Margin<number | string>)[]).push(spacesMap[spaceKey]);

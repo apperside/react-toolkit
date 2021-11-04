@@ -33,8 +33,8 @@ export const breakpointsMap: ThemeBreakpoints = {
 
 const breakpoints: ObjectOrArray<string, keyof ThemeBreakpoints> = [];
 
-type MediaQueryMap = { [key in keyof ThemeBreakpoints]: string };
-const mediaqueries: MediaQueryMap = {} as MediaQueryMap;
+
+// const mediaqueries: MediaQueryMap = {} as MediaQueryMap;
 /**
  * generate breakpoints in mobile first approach
  */
@@ -47,16 +47,18 @@ Object.keys(breakpointsMap).forEach((breakpointKey) => {
   breakpoints[typedKey] = breakpointsMap[typedKey];
   // media query aliases
 
-  mediaqueries[typedKey] = `@media screen and (min-width:${breakpointsMap[typedKey]})`;
+  // mediaqueries[typedKey] = `@media screen and (min-width:${breakpointsMap[typedKey]})`;
 });
 
-type MediaQueries = {
+export type MediaQueryMap = { [key in keyof ThemeBreakpoints]: string };
+export type BaseMediaQueries = {
   down: (breakpoint: BreakpointNames) => string;
   up: (breakpoint: BreakpointNames) => string;
   between: (breakpointMin: BreakpointNames, breakpointMax: BreakpointNames) => string;
-} & { [key in BreakpointNames]: string }
+}
 
-export const mediaQuery: MediaQueries = {
+export type MediaQueries = BaseMediaQueries & MediaQueryMap
+export const baseMediaQueries: BaseMediaQueries = {
   down: (breakpoint: BreakpointNames) => {
     return `@media screen and (max-width:  ${breakpointsMap[breakpoint]})`;
   },
@@ -66,8 +68,8 @@ export const mediaQuery: MediaQueries = {
   between: (breakpointMin: BreakpointNames, breakpointMax: BreakpointNames) => {
     return `@media (max-width:${breakpointsMap[breakpointMax]}) and (min-width:${breakpointsMap[breakpointMin]})`;
   },
-  ...mediaqueries
 };
+
 
 export default breakpoints;
 
