@@ -19,6 +19,9 @@ export * from "./styleguide/breakpoints";
 export { darkTheme as default, lightTheme };
 export type PropsWithVariant<T> = { variant?: T }
 
+export type CursorProps = {
+    cursor?: CSS.Property.Cursor
+};
 export const buildObjectOrArray = (obj: any) => {
     const result: any = [];
     Object.keys(obj).forEach((objKey) => {

@@ -1,4 +1,4 @@
-import { PropsWithVariant } from "../../theme";
+import { CursorProps, PropsWithVariant } from "../../theme";
 import styled from 'styled-components';
 import {
     BackgroundImageProps, border, BorderProps, borderRadius, color,
@@ -19,6 +19,7 @@ export type TextStyleProps =
     & FlexboxProps
     & FontFamilyProps
     & BorderProps
+    & CursorProps
 
 export interface TextProps extends TextStyleProps, PropsWithVariant<keyof TextVariants> {
     // children: React.ReactNode;

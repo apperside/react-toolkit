@@ -1,4 +1,4 @@
-import { PropsWithVariant } from "../../theme";
+import { CursorProps, PropsWithVariant } from "../../theme";
 import styled from 'styled-components';
 import {
     border, BorderProps, borderRadius,
@@ -8,7 +8,7 @@ import {
     position, PositionProps, space, SpaceProps, typography, TypographyProps, variant
 } from 'styled-system';
 import { ButtonVariants } from "./Button.theme";
-
+import * as CSS from 'csstype';
 export type ButtonStyleProps =
     ColorProps &
     BorderProps &
@@ -16,7 +16,9 @@ export type ButtonStyleProps =
     LayoutProps &
     TypographyProps &
     FlexboxProps &
-    PositionProps;
+    PositionProps &
+    CursorProps
+
 
 export interface ButtonProps extends ButtonStyleProps, PropsWithVariant<keyof ButtonVariants> {
     // children: React.ReactNode;

@@ -3,7 +3,7 @@ import { PropsOf } from "../../../typeUtils";
 import styled from 'styled-components';
 import { FlexboxProps } from "styled-system";
 import { background, BackgroundImageProps, BorderProps, borderRadius, TextStyleProps as SSTextStyleProps, color, ColorProps, flexbox, fontFamily, FontFamilyProps, fontSize, fontStyle, fontWeight, layout, LayoutProps, letterSpacing, lineHeight, size, space, SpaceProps, textAlign, textStyle, TextStyleProps, TypographyProps as SSTypographyProps, variant, width, WidthProps } from "styled-system";
-import { PropsWithVariant } from "../../theme";
+import { CursorProps, PropsWithVariant } from "../../theme";
 import { TextInputVariants } from "./TextInput.theme";
 
 export type TextInputStyleProps =
@@ -17,6 +17,7 @@ export type TextInputStyleProps =
     & FlexboxProps
     & FontFamilyProps
     & BorderProps
+    & CursorProps
 
 export interface TextInputProps extends TextInputStyleProps, PropsWithVariant<keyof TextInputVariants> {
     // children: React.ReactNode;
