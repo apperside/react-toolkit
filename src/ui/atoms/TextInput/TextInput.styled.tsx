@@ -21,6 +21,7 @@ export type TextInputStyleProps =
 export interface TextInputProps extends TextInputStyleProps, PropsWithVariant<keyof TextInputVariants> {
     // children: React.ReactNode;
     value?: string | number
+    onEnterPress?: () => void
     // onClick?: () => void
 }
 const InternalThemedTextInput = styled.input.withConfig<TextInputProps>({
