@@ -19,8 +19,6 @@ export const buttonTheme: ButtonTheme = {
   px: 20,
   py: 10,
   // px: 40,
-  color: "buttonSecondary",
-  backgroundColor: "green",
   borderRadius: 5,
   variants: {
     primary: {

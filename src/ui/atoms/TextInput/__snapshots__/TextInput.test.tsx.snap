@@ -5,7 +5,7 @@ exports[`Text renders a default button with text 1`] = `
   <div>
      
     <input
-      class="sc-bdnxRM izNsSl"
+      class="sc-bdnxRM zUpI"
       readonly=""
       value="Hello world"
     />
