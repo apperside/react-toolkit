@@ -22,7 +22,7 @@ export const Button: React.FC<PropsOf<typeof ThemedButton> & ButtonProps> = ({
     console.log("base theme is", baseTheme)
     return (
         <ThemedButton {...baseTheme} variant={variant} {...props} >
-            {isLoading && <Loader />}
+            {isLoading && <Loader style={{ alignSelf: "center", justifyContent: "center" }} message=" " loaderSize={14} textSize={14} />}
             {(!isLoading && label) ?? props.children}
         </ThemedButton >
     )
