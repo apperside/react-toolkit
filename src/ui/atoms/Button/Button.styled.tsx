@@ -24,6 +24,7 @@ export interface ButtonProps extends ButtonStyleProps, PropsWithVariant<keyof Bu
     // children: React.ReactNode;
     label?: string
     onClick?: () => void
+    isLoading?: boolean
 }
 
 export const ThemedButton = styled('button')<ButtonProps>(

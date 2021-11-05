@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { PropsOf } from "../../../typeUtils";
 import { useTheme } from "styled-components";
 import { ButtonProps, ThemedButton } from './Button.styled';
+import { Loader } from "../Loader/Loader";
 
 /**
  * Button UI component for user interaction
@@ -9,6 +10,7 @@ import { ButtonProps, ThemedButton } from './Button.styled';
 export const Button: React.FC<PropsOf<typeof ThemedButton> & ButtonProps> = ({
     variant = "primary",
     label,
+    isLoading,
     ...props
 }) => {
     const theme = useTheme();
@@ -20,7 +22,8 @@ export const Button: React.FC<PropsOf<typeof ThemedButton> & ButtonProps> = ({
     console.log("base theme is", baseTheme)
     return (
         <ThemedButton {...baseTheme} variant={variant} {...props} >
-            {label ?? props.children}
+            {isLoading && <Loader />}
+            {(!isLoading && label) ?? props.children}
         </ThemedButton >
     )
 };

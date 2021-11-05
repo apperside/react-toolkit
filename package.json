@@ -98,6 +98,7 @@
         "styled-system": "^5.1.5"
     },
     "dependencies": {
-        "url-join": "^4.0.0"
+        "url-join": "^4.0.0",
+        "react-loading": "^2.0.3"
     }
 }
