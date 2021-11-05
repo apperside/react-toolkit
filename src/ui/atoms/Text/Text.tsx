@@ -10,11 +10,11 @@ export const Text: React.FC<PropsOf<typeof ThemedText> & TextProps> = ({
 }) => {
 
     const theme = useTheme();
-    const textInputTheme = theme.textInput;
+    const textTheme = theme.text;
     const baseTheme = useMemo(() => {
-        const { variants, ...restOfTheme } = textInputTheme;
+        const { variants, ...restOfTheme } = textTheme;
         return restOfTheme;
-    }, [textInputTheme])
+    }, [textTheme])
 
     return (
         <ThemedText {...baseTheme} variant={variant} {...props} >

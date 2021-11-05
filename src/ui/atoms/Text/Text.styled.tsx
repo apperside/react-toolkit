@@ -33,11 +33,6 @@ export const ThemedText = styled.span<TextProps>(
         border: 0,
         outline: 0,
     },
-    props => {
-        return variant({
-            variants: props.theme.text.variants as any
-        })
-    },
     borderRadius,
     // textSize,
     textStyle,
@@ -52,6 +47,10 @@ export const ThemedText = styled.span<TextProps>(
     border,
     typography,
     position,
-
+    props => {
+        return variant({
+            variants: props.theme.text.variants as any
+        })
+    },
 
 );
