@@ -1,6 +1,6 @@
 {
     "name": "apperside-react-toolkit",
-    "version": "0.0.25",
+    "version": "0.0.26",
     "description": "A set of tools and patterns to develop react applications",
     "main": "lib/index.js",
     "module": "lib/index.esm.js",
@@ -98,7 +98,7 @@
         "styled-system": "^5.1.5"
     },
     "dependencies": {
-        "url-join": "^4.0.0",
-        "react-loading": "^2.0.3"
+        "react-loading": "^2.0.3",
+        "url-join": "^4.0.0"
     }
 }
