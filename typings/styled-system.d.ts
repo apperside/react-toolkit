@@ -1288,6 +1288,18 @@ declare module 'styled-system' {
     borderBottomRightRadius?: ResponsiveValue<keyof ThemeRadii | 0 | number | `${number}%`, ThemeType>;
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  export interface OutlineProps<ThemeType extends Theme = RequiredTheme, TVal = CSS.Property.Outline | keyof ThemeBorders | (string & {})> {
+    /**
+     * The outline CSS property adds a border to the focused view.
+     *
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/outline)
+     */
+    outline?: ResponsiveValue<TVal, ThemeType>;
+  }
+
+  export const outline: styleFn;
+
   export const borderRadius: styleFn;
 
   export interface BordersProps<ThemeType extends Theme = RequiredTheme>
@@ -1299,7 +1311,8 @@ declare module 'styled-system' {
     BorderWidthProps<ThemeType>,
     BorderColorProps<ThemeType>,
     BorderStyleProps<ThemeType>,
-    BorderRadiusProps<ThemeType> { }
+    BorderRadiusProps<ThemeType>,
+    OutlineProps<ThemeType> { }
 
   export const borders: styleFn;
 
@@ -1311,7 +1324,8 @@ declare module 'styled-system' {
     BorderTopProps<ThemeType>,
     BorderRightProps<ThemeType>,
     BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType> {
+    BorderLeftProps<ThemeType>,
+    OutlineProps<ThemeType> {
     /**
      * The border CSS property sets an element's border. It's a shorthand for border-width, border-style,
      * and border-color.

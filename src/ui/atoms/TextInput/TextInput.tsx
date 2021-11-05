@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
+import { useTheme } from "styled-components";
 import { PropsOf } from "../../../typeUtils";
 import { TextInputProps, ThemedTextInput } from './TextInput.styled';
-
+import { useMemo } from "react";
 export const TextInput: React.FC<PropsOf<typeof ThemedTextInput> & TextInputProps> = ({
     variant = "primary",
     onEnterPress,
@@ -16,8 +17,15 @@ export const TextInput: React.FC<PropsOf<typeof ThemedTextInput> & TextInputProp
         }
     }, [onEnterPress]);
 
+    const theme = useTheme();
+    const textInputTheme = theme.textInput;
+    const baseTheme = useMemo(() => {
+        const { variants, ...restOfTheme } = textInputTheme;
+        return restOfTheme;
+    }, [textInputTheme])
+
     return (
-        <ThemedTextInput variant={variant} onKeyDown={listener} {...props} />
+        <ThemedTextInput {...baseTheme} variant={variant} onKeyDown={listener} {...props} />
     )
 };
 
