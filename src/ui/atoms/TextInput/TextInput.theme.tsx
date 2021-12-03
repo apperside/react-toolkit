@@ -22,7 +22,7 @@ export interface TextInputVariants {
 export type TextInputTheme = TextInputStyleProps & { variants: Partial<TextInputVariants> }
 // interface Variants<T>={[key:keyof:T]}
 export const textInputTheme: TextInputTheme = {
-  fontFamily: "regular",
+  fontFamily: "body",
   py: 10, px: 15,
   borderStyle: "solid",
   borderWidth: 1,
@@ -30,7 +30,6 @@ export const textInputTheme: TextInputTheme = {
   variants: {
     primary: {
       borderColor: "primary",
-      // backgroundColor: "yellow",
     },
     secondary: {
       borderColor: "secondary"

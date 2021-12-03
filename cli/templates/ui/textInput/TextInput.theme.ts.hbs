@@ -1,5 +1,17 @@
 import { TextInputTheme } from "apperside-react-toolkit";
 
 export const textInputTheme: TextInputTheme = {
-  
+  fontFamily: "body",
+  py: 10, px: 15,
+  borderStyle: "solid",
+  borderWidth: 1,
+
+  variants: {
+    primary: {
+      borderColor: "primary",
+    },
+    secondary: {
+      borderColor: "secondary"
+    },
+  }
 };

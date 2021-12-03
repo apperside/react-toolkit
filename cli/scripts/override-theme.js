@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 rl.question("In which path you want to add the theme files?", (response) => {
 	const args = process.argv.slice(2);
 	console.log("args", args);
-	const dest = path.join(process.cwd(), response, "app-theme");
+	const dest = path.join(process.cwd(), response);
 	fs.ensureDirSync(dest);
 	fs.copySync(path.join(__dirname, "../templates/ui"), dest, { errorOnExist: true });
 
