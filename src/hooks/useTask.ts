@@ -17,10 +17,10 @@ export interface OperationsState {
  * 
  */
 export function useTask<A extends any[], T>(
-  fn: (...args: A) => T, options?: { name: string, simulateDelay?: boolean }
+  fn?: (...args: A) => T, options?: { name: string, simulateDelay?: boolean }
 ) {
 
-  const taskName = options?.name ?? fn.name
+  const taskName = options?.name ?? fn?.name
   const [hashKey, setHashKey] = useState<string>()
   const taskState = useOperationStatus(hashKey);
   console.log("taskState", taskName, hashKey, taskState)
@@ -37,7 +37,7 @@ export function useTask<A extends any[], T>(
     dispatch({ type: "operationsState/taskStatusChange", payload: { taskHash: hashed, status: "loading" } })
     // console.log('set loading true');
     try {
-      const result = await fn(...params);
+      const result = await fn?.(...params);
       dispatch({ type: "operationsState/taskStatusChange", payload: { taskHash: hashed, status: "success", data: result } })
       return result;
     } catch (err: any) {
