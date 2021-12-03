@@ -8,17 +8,13 @@ export interface ButtonVariants {
 }
 
 export type ButtonTheme = ButtonStyleProps & { variants: Partial<ButtonVariants> }
-// interface Variants<T>={[key:keyof:T]}
+
 export const buttonTheme: ButtonTheme = {
   borderWidth: 0,
   textAlign: "center",
-  // minWidth: "MIN_BUTTON_WIDTH",
-  // fontSize: "",
-  // fontFamily: "medium",
-  // borderRadius: 5,
+  fontSize: "medium",
   px: 20,
   py: 5,
-  // px: 40,
   borderRadius: 5,
   variants: {
     primary: {

@@ -3,8 +3,11 @@ import { ThemeBorders, ThemeBorderStyles, ThemeBorderWidths } from "styled-syste
 declare module "styled-system" {
 
   export interface ThemeBorders {
-    redborder: string
-    textInput: string
+    none: CSS.Property.Border;
+		"1px": CSS.Property.Border;
+		"2px": CSS.Property.Border;
+		"4px": CSS.Property.Border;
+		"8px": CSS.Property.Border;
   }
 
 
@@ -19,8 +22,11 @@ declare module "styled-system" {
 
 
 export const bordersMap: ThemeBorders = {
-  redborder: "1px solid red",
-  textInput: "2px solid white"
+	none: 0,
+	'1px': '1px solid',
+	'2px': '2px solid',
+	'4px': '4px solid',
+	'8px': '8px solid',
 };
 
 export const borderWidthsMap: ThemeBorderWidths = {

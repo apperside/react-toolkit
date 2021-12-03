@@ -8,20 +8,23 @@ import { ThemeSizes } from "styled-system";
 declare module "styled-system" {
 
   export interface ThemeSizes {
-    MIN_BUTTON_WIDTH: CSS.Property.Margin<number | string>;
-    ACTION_BUTTON_HEIGHT: CSS.Property.Margin<number | string>;
+    NONE: CSS.Property.Margin<number | string>;
+		XS: CSS.Property.Margin<number | string>;
+		S: CSS.Property.Margin<number | string>;
+		M: CSS.Property.Margin<number | string>;
+		L: CSS.Property.Margin<number | string>;
+		XL: CSS.Property.Margin<number | string>;
+		XXL: CSS.Property.Margin<number | string>;
   }
 }
 
 
 export const sizesMap: Partial<ThemeSizes> = {
-  MIN_BUTTON_WIDTH: 300,
-  ACTION_BUTTON_HEIGHT: 50,
-  // NONE: 0,
-  // XS: 2,
-  // S: 4,
-  // M: 8,
-  // L: 12,
-  // XL: 16,
-  // XXL: 20
+  NONE: 0,
+  XS: 2,
+  S: 4,
+  M: 8,
+  L: 12,
+  XL: 16,
+  XXL: 20
 };

@@ -2,7 +2,9 @@ import { ThemeBreakpoints } from "styled-system";
 
 declare module "styled-system" {
   export interface ThemeBreakpoints {
-    middle: string
+    default: string;
+		tablet: string;
+		desktop: string;
   }
 }
 
@@ -10,15 +12,9 @@ declare module "styled-system" {
  * The logic is mobile first, so the first breakpoint is alway from 0 to the first declared one
  */
 export const breakpointsMap: Partial<ThemeBreakpoints> = {
-  // default: "0px",
-  // // mobileS: "0px",
-  // // mobileM: "375px",
-  middle: "375px",
-  // // mobileL: "425px",
-  tablet: "460px",
-  // // laptop: "1024px",
-  // // laptopL: "1440px",
-  // desktop: "1024px",
+  default: "320px",
+  tablet: "425px",
+  desktop: "1024px",
 };
 
 

@@ -474,7 +474,7 @@ declare module 'styled-system' {
 
   export interface FontWeightProps<
     ThemeType extends Theme = RequiredTheme,
-    TVal = ThemeValue<'fontWeights', ThemeType>,
+    TVal = keyof ThemeFontWeights | CSS.Property.FontWeight,
     > {
     /**
      * The font-weight CSS property specifies the weight (or boldness) of the font.
@@ -490,7 +490,7 @@ declare module 'styled-system' {
 
   export interface LineHeightProps<
     ThemeType extends Theme = RequiredTheme,
-    TVal = ThemeValue<'lineHeights', ThemeType> | number | string,
+    TVal = keyof ThemeLineHeights | CSS.Property.FontWeight,
     > {
     /**
      * The line-height CSS property sets the amount of space used for lines, such as in text. On block-level elements,

@@ -10,25 +10,21 @@ declare module "apperside-react-toolkit" {
 
 export const textTheme: TextTheme = {
   variants: {
-    title: {
-      fontFamily: "black",
-      fontSize: "big"
-    },
-    black: {
-      fontFamily: "black"
-    },
     regular: {
-      fontFamily: "regular"
+      fontFamily: "body",
+      // backgroundColor: "yellow",
     },
     bold: {
-      fontFamily: "bold"
+      fontFamily: "body",
+      fontWeight: "bold"
     },
-    custom: {
-
-      backgroundColor: { tablet: "link", desktop: "warning" },
-      ":hover": {
-        color: "green"
-      }
+    medium: {
+      fontFamily: "body",
+      fontWeight: "medium"
+    },
+    black: {
+      fontFamily: "body",
+      fontWeight: "black"
     }
   }
 };

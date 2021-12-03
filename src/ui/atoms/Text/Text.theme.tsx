@@ -26,17 +26,20 @@ export type TextTheme = TextStyleProps & { variants: Partial<TextVariants> }
 export const textTheme: TextTheme = {
   variants: {
     regular: {
-      fontFamily: "regular",
+      fontFamily: "body",
       // backgroundColor: "yellow",
     },
     bold: {
-      fontFamily: "bold"
+      fontFamily: "body",
+      fontWeight: "bold"
     },
     medium: {
-      fontFamily: "medium"
+      fontFamily: "body",
+      fontWeight: "medium"
     },
     black: {
-      fontFamily: "black"
+      fontFamily: "body",
+      fontWeight: "black"
     }
   }
 };

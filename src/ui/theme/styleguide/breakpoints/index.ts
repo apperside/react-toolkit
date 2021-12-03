@@ -12,14 +12,8 @@ import { ObjectOrArray } from "styled-system";
  */
 export const breakpointsMap: ThemeBreakpoints = {
   default: "320px",
-  // mobileS: "0px",
-  // mobileM: "375px",
-  // mobileL: "425px",
   tablet: "425px",
-  // laptop: "1024px",
-  // laptopL: "1440px",
   desktop: "1024px",
-  // desktopL: "2560px"
 };
 
 /**

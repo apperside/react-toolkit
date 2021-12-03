@@ -11,20 +11,19 @@ declare module "styled-system" {
 
 	export interface ThemeBreakpoints {
 		default: string;
-		// mobileS: "0px",
-		// mobileM: "375px",
-		// mobileL: "425px",
 		tablet: string;
-		// laptop: "1024px",
-		// laptopL: "1440px",
 		desktop: string;
-		// desktopL: "2560px"
 	}
 }
 
 declare module "styled-system" {
 
 	export interface ThemeBorders {
+		none: CSS.Property.Border;
+		"1px": CSS.Property.Border;
+		"2px": CSS.Property.Border;
+		"4px": CSS.Property.Border;
+		"8px": CSS.Property.Border;
 
 	}
 
@@ -66,10 +65,17 @@ declare module "styled-system" {
 
 declare module "styled-system" {
 	export interface ThemeShadows {
-		NONE: CSS.Property.BoxShadow | CSS.Property.TextShadow
-		LIGHT: CSS.Property.BoxShadow | CSS.Property.TextShadow
-		MEDIUM: CSS.Property.BoxShadow | CSS.Property.TextShadow
-		STRONG: CSS.Property.BoxShadow | CSS.Property.TextShadow
+		xs: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		sm: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		base: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		md: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		lg: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		xl: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		'2xl': CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		outline: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		inner: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		none: CSS.Property.BoxShadow | CSS.Property.TextShadow;
+		'dark-lg': CSS.Property.BoxShadow | CSS.Property.TextShadow;
 	}
 }
 
@@ -111,36 +117,58 @@ declare module "styled-system" {
 declare module "styled-system" {
 
 	export interface ThemeFontFamilies {
-		regular: string;
-		medium: string;
-		bold: string;
-		black: string;
+		heading: string;
+		body: string;
+		mono: string;
 	}
 
 	export interface ThemeFontSizes {
+		smaller: string | number;
 		small: string | number;
+		regular: string | number;
 		medium: string | number;
-		big: string | number;
+		large: string | number;
 		huge: string | number;
 	}
 
 	export interface ThemeFontWeights {
+		hairline: CSS.Property.FontWeight;
 		thin: CSS.Property.FontWeight;
+		light: CSS.Property.FontWeight;
 		normal: CSS.Property.FontWeight;
+		medium: CSS.Property.FontWeight;
+		semibold: CSS.Property.FontWeight;
 		bold: CSS.Property.FontWeight;
+		extrabold: CSS.Property.FontWeight;
+		black: CSS.Property.FontWeight;
+
 	}
 
 	export interface ThemeLineHeights {
-		small: CSS.Property.LineHeight;
 		normal: CSS.Property.LineHeight;
-		medium: CSS.Property.LineHeight;
-		large: CSS.Property.LineHeight;
+		none: CSS.Property.LineHeight;
+		shorter: CSS.Property.LineHeight;
+		short: CSS.Property.LineHeight;
+		base: CSS.Property.LineHeight;
+		tall: CSS.Property.LineHeight;
+		taller: CSS.Property.LineHeight;
+		"3": CSS.Property.LineHeight;
+		"4": CSS.Property.LineHeight;
+		"5": CSS.Property.LineHeight;
+		"6": CSS.Property.LineHeight;
+		"7": CSS.Property.LineHeight;
+		"8": CSS.Property.LineHeight;
+		"9": CSS.Property.LineHeight;
+		"10": CSS.Property.LineHeight;
 	}
 
 	export interface ThemeLetterSpacings {
+		tighter: CSS.Property.LineHeight;
+		tight: CSS.Property.LineHeight;
 		normal: CSS.Property.LineHeight;
-		medium: CSS.Property.LineHeight;
-		large: CSS.Property.LineHeight;
+		wide: CSS.Property.LineHeight;
+		wider: CSS.Property.LineHeight;
+		widest: CSS.Property.LineHeight;
 	}
 }
 

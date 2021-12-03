@@ -3,10 +3,22 @@ import { ThemeRadii } from "styled-system";
 declare module "styled-system" {
 
   export interface ThemeRadii {
-    CUSTOM_RADII: string | number
+    NONE: CSS.Property.BorderRadius<number>;
+		XS: CSS.Property.BorderRadius<number>
+		S: CSS.Property.BorderRadius<number>
+		M: CSS.Property.BorderRadius<number>
+		L: CSS.Property.BorderRadius<number>
+		XL: CSS.Property.BorderRadius<number>
+		ROUNDED: CSS.Property.BorderRadius<number>
   }
 }
 
 export const radiisMap: Partial<ThemeRadii> = {
-  CUSTOM_RADII: "20px"
+  NONE: 0,
+	XS: 2,
+	S: 4,
+	M: 8,
+	L: 12,
+	XL: 16,
+	ROUNDED: "100%"
 };

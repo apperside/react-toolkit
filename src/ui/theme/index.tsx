@@ -40,7 +40,7 @@ export const buildObjectOrArray = (obj: any) => {
 }
 
 export const buildMediaQueries = (breakpoints: ThemeBreakpoints): MediaQueries => {
-    console.log("building mediaqueris", breakpoints)
+    // console.log("building mediaqueris", breakpoints)
     const mediaqueries: MediaQueries = {} as MediaQueries;
     Object.keys(breakpoints).forEach((breakpointKey) => {
         const typedKey = breakpointKey as keyof ThemeBreakpoints;
@@ -256,7 +256,7 @@ export const ThemeProvider: React.FC<ThemeProviderPropsProps> = ({ children, the
         const mergedTextInput = deepmerge(textInputTheme, theme?.textInput ?? {});
 
         const mediaQueries = buildMediaQueries({ ...breakpointsMap, ...theme?.breakpoints ?? {} })
-        console.log("mediaqueries are", mediaQueries)
+        // console.log("mediaqueries are", mediaQueries)
 
         return {
             ...baseTheme,
