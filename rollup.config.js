@@ -8,35 +8,35 @@ import multiInput from 'rollup-plugin-multi-input';
 import copy from 'rollup-plugin-copy'
 
 export default [
-    // {
-    //     input: 'src/index.ts',
-    //     output: [
-    //         {
-    //             file: packageJson.main,
-    //             format: 'cjs',
-    //             sourcemap: true,
-    //         },
-    //         {
-    //             file: packageJson.module,
-    //             format: 'esm',
-    //             sourcemap: true,
-    //         },
-    //     ],
-    //     plugins: [
-    //         cleaner({
-    //             targets: ['./lib'],
-    //         }),
-    //         peerDepsExternal(),
-    //         resolve(),
-    //         commonjs(),
-    //         typescript({
-    //             tsconfigOverride: {
+    {
+        input: 'src/index.ts',
+        output: [
+            {
+                file: packageJson.main,
+                format: 'cjs',
+                sourcemap: true,
+            },
+            {
+                file: packageJson.module,
+                format: 'esm',
+                sourcemap: true,
+            },
+        ],
+        plugins: [
+            cleaner({
+                targets: ['./lib'],
+            }),
+            peerDepsExternal(),
+            resolve(),
+            commonjs(),
+            typescript({
+                tsconfigOverride: {
 
-    //                 exclude: ['cli/**/*', '**/*.stories.tsx', '**/*.test.tsx'],
-    //             }
-    //         }),
-    //     ],
-    // },
+                    exclude: ['cli/**/*', '**/*.stories.tsx', '**/*.test.tsx'],
+                }
+            }),
+        ],
+    },
     {
         input: 'cli/**/*.js',
         experimentalCodeSplitting: true,
@@ -45,9 +45,9 @@ export default [
             dir: 'lib',
         },
         plugins: [
-            cleaner({
-                targets: ['./lib'],
-            }),
+            // cleaner({
+            //     targets: ['./lib'],
+            // }),
             // typescript({
             //     tsconfigOverride: {
             //         exclude: ['src/**/*'],
