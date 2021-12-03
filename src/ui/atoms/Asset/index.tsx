@@ -1,5 +1,6 @@
 export { Asset } from "./Asset";
-const icButtonWhite = require("../../../assets/images/icButtonWhite/icButtonWhite.png");
+console.log("process 2", process.cwd())
+const icButtonWhite = require(process.cwd() + "/assets/images/icButtonWhite/icButtonWhite.png");
 export interface AppImages {
 	icButtonWhite: string
 }
