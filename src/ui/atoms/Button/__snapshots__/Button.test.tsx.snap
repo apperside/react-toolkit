@@ -5,10 +5,16 @@ exports[`Button handles onClick 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM qZBNM"
-      font-size="medium"
+      class="sc-bdnxRM cOQJuI"
+      id="mybutton"
     >
-      Click Me
+      <span
+        class="sc-hKFxyN hHAztA"
+        color="white"
+        font-size="medium"
+      >
+        Click Me
+      </span>
     </button>
      
   </div>
@@ -20,10 +26,16 @@ exports[`Button renders a default button with text 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM qZBNM"
-      font-size="medium"
+      class="sc-bdnxRM cOQJuI"
+      id="mybutton"
     >
-      Click me
+      <span
+        class="sc-hKFxyN hHAztA"
+        color="white"
+        font-size="medium"
+      >
+        Click me
+      </span>
     </button>
      
   </div>
@@ -35,10 +47,16 @@ exports[`Button renders a primary button 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM qZBNM"
-      font-size="medium"
+      class="sc-bdnxRM cOQJuI"
+      id="mybutton"
     >
-      Click me
+      <span
+        class="sc-hKFxyN hHAztA"
+        color="white"
+        font-size="medium"
+      >
+        Click me
+      </span>
     </button>
      
   </div>

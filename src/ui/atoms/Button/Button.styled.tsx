@@ -1,23 +1,26 @@
-import { CursorProps, PropsWithVariant } from "../../theme";
+import { PropsOf } from "src/typeUtils";
 import styled from 'styled-components';
 import {
     border, BorderProps, borderRadius,
     buttonStyle,
     color,
     ColorProps, flexbox, FlexboxProps, fontSize, layout, LayoutProps, padding,
-    position, PositionProps, space, SpaceProps, typography, TypographyProps, variant
+    position, PositionProps, space, SpaceProps, typography, variant
 } from 'styled-system';
+import { CursorProps, PropsWithVariant } from "../../theme";
+import { AssetName } from "../Asset";
+import Text from "../Text/Text";
 import { ButtonVariants } from "./Button.theme";
-import * as CSS from 'csstype';
+
 export type ButtonStyleProps =
     ColorProps &
     BorderProps &
     SpaceProps &
     LayoutProps &
-    TypographyProps &
     FlexboxProps &
     PositionProps &
-    CursorProps
+    CursorProps &
+    { textStyle?: PropsOf<typeof Text> }
 
 
 export interface ButtonProps extends ButtonStyleProps, PropsWithVariant<keyof ButtonVariants> {
@@ -25,6 +28,9 @@ export interface ButtonProps extends ButtonStyleProps, PropsWithVariant<keyof Bu
     label?: string
     onClick?: () => void
     isLoading?: boolean
+    icon?: AssetName | React.ReactNode
+    iconPosition?: 'left' | 'right'
+    iconSize?: number
 }
 
 export const ThemedButton = styled('button')<ButtonProps>(

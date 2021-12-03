@@ -1,24 +1,25 @@
 import { ThemeRadii } from "styled-system";
+import CSS from "csstype";
 
 declare module "styled-system" {
 
-  export interface ThemeRadii {
-    NONE: CSS.Property.BorderRadius<number>;
-		XS: CSS.Property.BorderRadius<number>
-		S: CSS.Property.BorderRadius<number>
-		M: CSS.Property.BorderRadius<number>
-		L: CSS.Property.BorderRadius<number>
-		XL: CSS.Property.BorderRadius<number>
-		ROUNDED: CSS.Property.BorderRadius<number>
-  }
-}
+export interface ThemeRadii {
+NONE: CSS.Property.BorderRadius<number>;
+  XS: CSS.Property.BorderRadius<number>
+    S: CSS.Property.BorderRadius<number>
+      M: CSS.Property.BorderRadius<number>
+        L: CSS.Property.BorderRadius<number>
+          XL: CSS.Property.BorderRadius<number>
+            ROUNDED: CSS.Property.BorderRadius<number>
+              }
+              }
 
-export const radiisMap: Partial<ThemeRadii> = {
-  NONE: 0,
-	XS: 2,
-	S: 4,
-	M: 8,
-	L: 12,
-	XL: 16,
-	ROUNDED: "100%"
-};
+              export const radiisMap: Partial<ThemeRadii> = {
+                NONE: 0,
+                XS: 2,
+                S: 4,
+                M: 8,
+                L: 12,
+                XL: 16,
+                ROUNDED: "100%"
+                };

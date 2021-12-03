@@ -5,7 +5,7 @@ exports[`Text renders a default text 1`] = `
   <div>
      
     <span
-      class="sc-bdnxRM fOXFKv"
+      class="sc-bdnxRM dCvfTa"
     >
       Hello world
     </span>

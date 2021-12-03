@@ -48,12 +48,12 @@ export default [
             // cleaner({
             //     targets: ['./lib'],
             // }),
-            // typescript({
-            //     tsconfigOverride: {
-            //         exclude: ['src/**/*'],
-            //         include: ['cli/**/*'],
-            //     }
-            // }),
+            typescript({
+                tsconfigOverride: {
+                    exclude: ['src/**/*'],
+                    include: ['cli/**/*'],
+                }
+            }),
             multiInput(),
 
             commonjs(),

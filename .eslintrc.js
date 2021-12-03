@@ -28,6 +28,9 @@ module.exports = {
         "@typescript-eslint/no-empty-interface": [
             "off"
         ],
+        "testing-library/no-node-access": "off",
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/ban-ts-comment": 0,
         "react/prop-types": ["off"]
         // indent: [2, 2, { SwitchCase: 1 }],
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
