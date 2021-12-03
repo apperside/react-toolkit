@@ -1,0 +1,38 @@
+import * as CSS from "csstype";
+import { ThemeSpaces } from "styled-system";
+
+
+/**
+ * Values used for 
+ * 
+ * width, height, minWidth, maxWidth, minHeight, maxHeight, size
+ */
+declare module "styled-system" {
+
+  export interface ThemeSpaces {
+    mainTopMargin: CSS.Property.Margin<number | string>;
+    mainLeftMargin: CSS.Property.Margin<number | string>;
+    meetingPageLateralMargins: CSS.Property.Margin<number | string>;
+    bottomToolbarYPadding: CSS.Property.Margin<number | string>;
+    actionButtonHeight: CSS.Property.Margin<number | string>;
+    widgetsBottomSpacingExpanded: CSS.Property.Margin<number | string>;
+    mainLateralMargin: CSS.Property.Margin<number | string>;
+  }
+}
+
+export const spacesMap: Partial<ThemeSpaces> = {
+  mainLeftMargin: 50,
+  mainTopMargin: 90,
+  meetingPageLateralMargins: 25,
+  bottomToolbarYPadding: 20,
+  actionButtonHeight: 50,
+  widgetsBottomSpacingExpanded: 15,
+  mainLateralMargin: "15%"
+  // NONE: 0,
+  // XS: 2,
+  // S: 4,
+  // M: 8,
+  // L: 16,
+  // XL: 32,
+  // XXL: 64
+};

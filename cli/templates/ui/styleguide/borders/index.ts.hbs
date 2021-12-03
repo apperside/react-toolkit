@@ -1,0 +1,33 @@
+import { ThemeBorders, ThemeBorderStyles, ThemeBorderWidths } from "styled-system";
+
+declare module "styled-system" {
+
+  export interface ThemeBorders {
+    redborder: string
+    textInput: string
+  }
+
+
+  export interface ThemeBorderWidths {
+
+  }
+
+  export interface ThemeBorderStyles {
+
+  }
+}
+
+
+export const bordersMap: ThemeBorders = {
+  redborder: "1px solid red",
+  textInput: "2px solid white"
+};
+
+export const borderWidthsMap: ThemeBorderWidths = {
+
+};
+
+export const borderStylesMap: ThemeBorderStyles = {
+
+};
+

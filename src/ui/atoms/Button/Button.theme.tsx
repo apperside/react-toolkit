@@ -17,7 +17,7 @@ export const buttonTheme: ButtonTheme = {
   // fontFamily: "medium",
   // borderRadius: 5,
   px: 20,
-  py: 10,
+  py: 5,
   // px: 40,
   borderRadius: 5,
   variants: {

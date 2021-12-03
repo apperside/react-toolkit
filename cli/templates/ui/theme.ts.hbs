@@ -1,0 +1,34 @@
+import { CustomTheme } from "apperside-react-toolkit";
+import { buttonTheme } from "./button/Button.theme";
+import { bordersMap, borderStylesMap, borderWidthsMap } from "./styleguide/borders";
+import { breakpointsMap } from "./styleguide/breakpoints";
+import { colorsMap } from "./styleguide/colors";
+import { radiisMap } from "./styleguide/radii";
+import { shadowsMap } from "./styleguide/shadows";
+import { sizesMap } from "./styleguide/sizes";
+import { spacesMap } from "./styleguide/spaces";
+import { fontSizesMap, fontsMap, fontWeightsMap, letterSpacingsMap, lineHeightsMap } from "./styleguide/typography";
+import { zIndicesMap } from "./styleguide/zIndices";
+import { textInputTheme } from "./textInput/TextInput.theme";
+
+
+export const appTheme: Partial<CustomTheme> = {
+  space: spacesMap,
+  fontSizes: fontSizesMap,
+  colors: colorsMap,
+  fonts: fontsMap,
+  fontWeights: fontWeightsMap,
+  lineHeights: lineHeightsMap,
+  letterSpacings: letterSpacingsMap,
+  sizes: sizesMap,
+  borders: bordersMap,
+  borderWidths: borderWidthsMap,
+  borderStyles: borderStylesMap,
+  radii: radiisMap,
+  shadows: shadowsMap,
+  zIndices: zIndicesMap,
+  breakpoints: breakpointsMap,
+
+  button: buttonTheme,
+  textInput: textInputTheme
+};

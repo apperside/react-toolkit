@@ -1,0 +1,18 @@
+import { ButtonTheme } from "apperside-react-toolkit";
+
+export const buttonTheme: ButtonTheme = {
+  // common styles to all variants
+  variants: {
+    primary: {
+    },
+    secondary: {
+      ":disabled": {
+        cursor: "auto",
+        opacity: 0.5
+      },
+      ":hover": {
+        opacity: 0.5
+      },
+    },
+  }
+};

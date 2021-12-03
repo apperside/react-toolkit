@@ -1,0 +1,12 @@
+import { ThemeRadii } from "styled-system";
+
+declare module "styled-system" {
+
+  export interface ThemeRadii {
+    CUSTOM_RADII: string | number
+  }
+}
+
+export const radiisMap: Partial<ThemeRadii> = {
+  CUSTOM_RADII: "20px"
+};

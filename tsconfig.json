@@ -25,7 +25,9 @@
   },
   "include": [
     "src/**/*",
-    "typings"
+    "typings",
+    "cli/templates",
+    "cli/scripts"
   ],
   "exclude": [
     "node_modules",

@@ -1,0 +1,34 @@
+import { TextStyleProps, TextTheme, VariantProps } from "apperside-react-toolkit";
+
+declare module "apperside-react-toolkit" {
+	interface TextVariants {
+		custom: VariantProps<TextStyleProps>;
+		title: VariantProps<TextStyleProps>;
+	}
+
+}
+
+export const textTheme: TextTheme = {
+  variants: {
+    title: {
+      fontFamily: "black",
+      fontSize: "big"
+    },
+    black: {
+      fontFamily: "black"
+    },
+    regular: {
+      fontFamily: "regular"
+    },
+    bold: {
+      fontFamily: "bold"
+    },
+    custom: {
+
+      backgroundColor: { tablet: "link", desktop: "warning" },
+      ":hover": {
+        color: "green"
+      }
+    }
+  }
+};

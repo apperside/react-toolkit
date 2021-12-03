@@ -82,7 +82,8 @@ async function httpRequest({
 
   // whenever the url we are passing is a full url so we can also call arbitrary enpoints if needed
   const isFullUrl = requestUrl.toLowerCase().startsWith("http") || requestUrl.toLowerCase().startsWith("https");
-  if (isProtected) {
+  const authHeader = headers["Authorization"];
+  if (isProtected && !authHeader) {
     const token = localStorage.getItem("token")
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;

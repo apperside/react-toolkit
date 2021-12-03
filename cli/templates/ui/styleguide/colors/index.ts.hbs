@@ -1,0 +1,18 @@
+import { ThemeColors } from "styled-system";
+
+declare module "styled-system" {
+
+  export interface ThemeColors {
+    mainBackgroundColor: string
+    bodyBg: string;
+  }
+}
+
+export const colorsMap: Partial<ThemeColors> = {
+  primary: "#0BB07A",
+  secondary: "#1a1a1a",
+  bodyBg: "rgba(239, 239, 239, 1)",
+  mainBackgroundColor: "#1a1a1a"
+};
+
+

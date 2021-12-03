@@ -24,7 +24,7 @@ export type RestResponseType<S extends keyof RoutesMapping, T extends keyof Rout
 // export type MyResponseType<S extends keyof RoutesMapping, T extends keyof RoutesMapping[S]> = RoutesMapping[S][T]["dataType"]
 export type RestPayloadType<S extends keyof RoutesMapping, T extends keyof RoutesMapping[S]> =
   RoutesMapping[S][T] extends { dataType: infer D, payloadType?: infer P } ?
-  P extends undefined ? Partial<D> : Partial<P>
+  P extends undefined ? Partial<D> : P extends null ? never : Partial<P>
   : never;
 
 

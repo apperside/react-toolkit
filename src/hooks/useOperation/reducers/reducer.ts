@@ -15,7 +15,7 @@ const reducer = (state: OperationsState = initialState, action: any): Operations
 		case "operationsState/operationStatusChange": {
 			if (action.payload) {
 				console.log("has payload", action.payload)
-				const operationType = action.payload?.operationType;
+				const operationType = action.payload?.operationHash;
 				console.log("operationType is", operationType)
 				if (!operationType) {
 					return { ...state }
@@ -24,6 +24,22 @@ const reducer = (state: OperationsState = initialState, action: any): Operations
 				return {
 					...state,
 					[operationType]: action.payload
+				}
+			}
+			return { ...state }
+		}
+		case "operationsState/taskStatusChange": {
+			if (action.payload) {
+				console.log("task has payload", action.payload)
+				const taskType = action.payload?.taskHash;
+				console.log("taskType is", taskType)
+				if (!taskType) {
+					return { ...state }
+				}
+
+				return {
+					...state,
+					[taskType]: action.payload
 				}
 			}
 			return { ...state }

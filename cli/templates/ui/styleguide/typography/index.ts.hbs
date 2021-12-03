@@ -1,0 +1,63 @@
+import { ThemeFontFamilies, ThemeFontSizes, ThemeFontWeights, ThemeLetterSpacings, ThemeLineHeights } from "styled-system";
+
+declare module "styled-system" {
+
+  export interface ThemeFontFamilies {
+
+  }
+
+  export interface ThemeFontSizes {
+
+  }
+
+  export interface ThemeFontWeights {
+
+  }
+
+  export interface ThemeLineHeights {
+
+  }
+
+  export interface ThemeLetterSpacings {
+
+  }
+}
+
+
+export const fontsMap: Partial<ThemeFontFamilies> = {
+  regular: "  ",
+  medium: "Basier Circle-Medium, Helvetica, Arial, sans-serif",
+  bold: "Montserrat-Bold, Helvetica, Arial, sans-serif",
+  black: "Montserrat-Black, Helvetica, Arial, sans-serif",
+};
+
+
+export const fontSizesMap: Partial<ThemeFontSizes> = {
+  // small: 10,
+  // medium: 15,
+  // big: 24,
+  // huge: 50,
+};
+
+
+export const fontWeightsMap: Partial<ThemeFontWeights> = {
+  // thin: 200,
+  // normal: 400,
+  // bold: 700
+};
+
+
+export const lineHeightsMap: Partial<ThemeLineHeights> = {
+  // small: 0.8,
+  // normal: "normal",
+  // medium: 1.2,
+  // large: 1.5
+};
+
+
+export const letterSpacingsMap: Partial<ThemeLetterSpacings> = {
+  // normal: "normal",
+  // medium: "0.1rem",
+  // large: "0.4rem"
+};
+
