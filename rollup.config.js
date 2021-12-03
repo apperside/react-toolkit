@@ -29,11 +29,7 @@ export default [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            copy({
-                targets: [
-                    { src: 'src/assets', dest: 'lib' }
-                ]
-            }),
+
             typescript({
                 tsconfigOverride: {
 

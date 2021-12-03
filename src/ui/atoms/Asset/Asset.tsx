@@ -40,7 +40,7 @@ const AssetComponent: React.FC<Props & PropsOf<typeof Image>> = ({
 
       return `https://unsplash.it/${w || 100}/${h || 100}`;
     } else if (name) {
-      return icons[name];
+      return icons[name as any];
     }
 
     // console.warn("the image is", base64EncodedImage)

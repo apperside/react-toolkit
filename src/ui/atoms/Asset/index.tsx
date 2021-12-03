@@ -1,12 +1,11 @@
 export { Asset } from "./Asset";
 console.log("process 2", process.cwd())
-const icButtonWhite = require(process.cwd() + "/assets/images/icButtonWhite/icButtonWhite.png");
 export interface AppImages {
-	icButtonWhite: string
+
 }
 
-export const icons = {
-	icButtonWhite,
+export let icons = {
+
 }
 
 
@@ -15,12 +14,11 @@ export type AssetName = keyof AppImages
 
 
 
-const updateAssets = (assets: any) => {
-	Object.keys(assets).forEach(key => {
-		icons[key] = assets[key];
-	});
+const updateAssets = (assets: { [key: string]: any }) => {
+	icons = { ...assets }
 };
 
 export const AssetsUtils = {
 	updateAssets
 }
+
