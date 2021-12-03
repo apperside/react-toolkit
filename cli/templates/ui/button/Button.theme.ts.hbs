@@ -1,23 +1,26 @@
 import { ButtonTheme } from "apperside-react-toolkit";
 
 export const buttonTheme: ButtonTheme = {
-  borderWidth: 0,
-  textAlign: "center",
-  fontSize: "medium",
-  px: 20,
-  py: 5,
-  borderRadius: 5,
-  variants: {
-    primary: {
-      color: "white",
-      backgroundColor: "primary",
-    },
-    secondary: {
-      color: "white",
-      bg: "secondary",
-    },
-    danger: {
-      backgroundColor: "warning",
-    }
-  }
+borderWidth: 0,
+textStyle: {
+textAlign: "center",
+fontSize: "medium",
+color: "white",
+},
+px: 20,
+py: 5,
+borderRadius: 5,
+variants: {
+primary: {
+color: "white",
+backgroundColor: "primary",
+},
+secondary: {
+color: "white",
+bg: "secondary",
+},
+danger: {
+backgroundColor: "warning",
+}
+}
 };
