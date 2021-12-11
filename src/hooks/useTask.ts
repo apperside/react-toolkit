@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { apiRequest } from "src/networking/httpManager";
 import { useOperationStatus } from ".";
 import objHash from "object-hash";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 export type OperationStatus = "idle" | "loading" | "success" | "error"
 export type OperationInfo = { status: "idle" } | { status: "loading" } | { status: "success", data: any } | { status: "error", error: any };
@@ -25,7 +25,7 @@ export function useTask<A extends any[], T>(
 
   const [data, setData] = useState<T>();
   const [error, setError] = useState()
-  const execute = async (...params: Parameters<(...args: A) => Promise<T>>) => {
+  const execute = useCallback(async (...params: Parameters<(...args: A) => Promise<T>>) => {
     const toBeHashed = { ...params, "__taskName__": taskName };
     const hashed = objHash(toBeHashed, { unorderedObjects: true, unorderedArrays: true, unorderedSets: true });
     console.log("hashed", toBeHashed, hashed)
@@ -48,7 +48,7 @@ export function useTask<A extends any[], T>(
       throw err;
     }
 
-  };
+  }, [fn, options]);
   return { status, isIdle: status === "idle", data: data as T, isLoading: status === "loading", execute, error };
 }
 
