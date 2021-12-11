@@ -20,32 +20,35 @@ export function useOperation<A extends any[], T>(
   fn: (...args: A) => ThunkAction<Promise<T>, any, unknown, any>, options?: { name: string, simulateDelay?: boolean }
 ) {
 
-  const actionName = options?.name ?? fn.name
+  const taskName = options?.name ?? fn?.name
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  const [hashKey, setHashKey] = useState<string>()
-  const operationState = useOperationStatus(hashKey);
-  console.log("operationState", operationState)
   const dispatch = useDispatch();
-  const isLoading = operationState.status === "loading";
-  const isIdle = operationState.status === "idle";
+
+  const [data, setData] = useState<T>();
+  const [error, setError] = useState()
 
   const execute = async (...params: Parameters<(...args: A) => Promise<T>>) => {
-    const toBeHashed = { ...params, "__taskName__": actionName };
+    const toBeHashed = { ...params, "__taskName__": taskName };
     const hashed = objHash(toBeHashed, { unorderedObjects: true, unorderedArrays: true, unorderedSets: true });
     console.log("hashed", toBeHashed, hashed)
-    setHashKey(hashed)
-    dispatch({ type: "operationsState/operationStatusChange", payload: { operationHash: hashed, status: "loading" } })
+    // setHashKey(hashed)
+    setStatus("loading");
     // console.log('set loading true');
     try {
       const result = await dispatch(fn(...params));
-      dispatch({ type: "operationsState/operationStatusChange", payload: { operationHash: hashed, status: "success", data: result } })
+      setData(result as any as T);
+      setStatus("success");
+      // dispatch({ type: "operationsState/taskStatusChange", payload: { taskHash: hashed, status: "success", data: result } })
       return result;
     } catch (err: any) {
-      console.warn("sideEfect execution error " + hashed, err, JSON.stringify(err));
-      dispatch({ type: "operationsState/operationStatusChange", payload: { operationHash: hashed, status: "error", error: err } })
+      // setStatus("error");
+      setError(err);
+      console.warn("sideEfect execution error " + taskName, err, JSON.stringify(err));
+      // dispatch({ type: "operationsState/taskStatusChange", payload: { taskHash: hashed, status: "error", error: err } })
       throw err;
     }
   };
-  return { status: operationState.status, isIdle, data: (operationState.status as any).data as T, isLoading, execute, error: (operationState.status as any).data };
+  return { status, isIdle: status === "idle", data: data as T, isLoading: status === "loading", execute, error };
 }
 
