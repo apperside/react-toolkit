@@ -10,31 +10,50 @@ type AllRoutes<S extends string, Prefix extends string | unknown = unknown> =
 export interface User {
 
 }
-export interface RouteModelMapping {
+type GetManyResponse<T> = {
+  rows: T[];
+  count: number
+  page: number
+}
+
+type GetOneReponse<T> = {
+  rows: T[];
+  count: number
+  page: number
+}
+type SaveOnePayaload<T> = {
+  item: T
+}
+type SaveManyPayload<T> = {
+  items: T[];
+}
+export interface RoutesModelMapping {
   user: User
 }
-export type ModelRoutes<T extends keyof RouteModelMapping, BasePath extends string | unknown = unknown> = {
-  [key in AllRoutes<T, BasePath>]: RouteModelMapping[T]
+export type ModelRoutes<T extends keyof RoutesModelMapping, BasePath extends string | unknown = unknown> = {
+  [key in AllRoutes<T, BasePath>]:
+  key extends `${string}/bulk` ?
+  { responseType: GetManyResponse<RoutesModelMapping[T]>, payloadType: SaveManyPayload<RoutesModelMapping[T]> } :
+  key extends `${string}/:id` ?
+  { responseType: GetOneReponse<RoutesModelMapping[T]>, payloadType: SaveOnePayaload<RoutesModelMapping[T]> } :
+  key extends `${string}` ?
+  { responseType: GetManyResponse<RoutesModelMapping[T]>, payloadType: never } :
+  RoutesModelMapping[T]
 }
 
 
 export interface ModelsDef { }
 
-type GetAllResponse<T> = {
-  rows: T[];
-  count: number
-  page: number
-}
 export type CrudRoutes = {
   // eslint-disable-next-line max-len
-  [key in keyof ModelsDef]:
-  key extends `${string}/bulk` ?
-  { responseType: { data: never }, payloadType: { data: ModelsDef[key][] } } :
-  key extends `${string}/:id` ?
-  { responseType: { data: ModelsDef[key] }, payloadType: ModelsDef[key] } :
-  key extends `${string}` ?
-  { responseType: { data: ModelsDef[key][] }, payloadType: never } :
-  unknown
+  [key in keyof ModelsDef]: ModelsDef[key]
+  // key extends `${string}/bulk` ?
+  // { responseType: { data: never }, payloadType: { data: ModelsDef[key][] } } :
+  // key extends `${string}/:id` ?
+  // { responseType: { data: ModelsDef[key] }, payloadType: ModelsDef[key] } :
+  // key extends `${string}` ?
+  // { responseType: { data: ModelsDef[key][] }, payloadType: never } :
+  // unknown
 }
 
 export interface MainApi extends CrudRoutes {
