@@ -1,4 +1,4 @@
-import { useQuery, UseQueryOptions } from "react-query";
+import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
 import { RestApiRequestOptions, restGet, RestResponseType as RestResponseType, RoutesMapping } from "../networking";
 
 export type UseRestOptions = {
@@ -8,7 +8,7 @@ export type UseRestOptions = {
 
 
 export function useAppQuery<S extends keyof RoutesMapping = "main", T extends keyof RoutesMapping[S] = keyof RoutesMapping[S]>
-  (route: T | { scope: S, route: T }, restOptions: UseRestOptions = {}, queryOptions: UseQueryOptions = {}) {
+  (route: T | { scope: S, route: T }, restOptions: UseRestOptions = {}, queryOptions: UseQueryOptions = {}): UseQueryResult<RestResponseType<S, T>> {
 
   const keyForUseQuery: any = [route, { ...restOptions.query }];
 
@@ -38,7 +38,7 @@ export function useAppQuery<S extends keyof RoutesMapping = "main", T extends ke
     })
     .join("/");
 
-  type RES = RestResponseType<S, T>;
+  type RES = RestResponseType<S, T>
   return useQuery<RES>(keyForUseQuery, (params: any) => {
     return restGet(finalRoute as any, { ...restOptions, apiScope: (route as any).scope ?? "main" }) as Promise<RES>
   }, queryOptions as any);
