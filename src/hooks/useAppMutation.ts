@@ -1,4 +1,4 @@
-import { MutationKey, useMutation, UseMutationOptions, useQueryClient } from "react-query";
+import { MutationKey, useMutation, UseMutationOptions, UseMutationResult, useQueryClient } from "react-query";
 import { ApiScope, RestApiRequestOptions, RestApiRoute, RestPayloadType as RestPayloadType, restPost, RestResponseType as RestResponseType } from "../networking";
 
 export type UseRestOptions = {
@@ -13,7 +13,7 @@ export function useAppMutation<S extends ApiScope = "main", T extends RestApiRou
   route: T | { scope: S, route: RestApiRoute<S> }, options: UseRestOptions = {
   },
   mutationOptions: UseMutationOptions = {}
-) {
+): UseMutationResult<RestResponseType<S, T>, any, RestPayloadType<S, T> & { pathParams?: { [key: string]: any } }> {
   const queryClient = useQueryClient();
   const keyForUseQuery: any = [route, { ...options.query }];
   const { extraRoutePath } = options
@@ -29,7 +29,7 @@ export function useAppMutation<S extends ApiScope = "main", T extends RestApiRou
   type RES = RestResponseType<S, T>;
   type PAY = RestPayloadType<S, T>
 
-  return useMutation<RES, any, PAY & { pathParams?: { [key: string]: any } }>(keyForUseQuery as MutationKey, (params) => {
+  return useMutation<RestResponseType<S, T>, any, RestPayloadType<S, T> & { pathParams?: { [key: string]: any } }>(keyForUseQuery as MutationKey, (params) => {
     console.log("options", options)
     console.log("params", params)
     const finalRoute = (route as string).split("/")
