@@ -40,6 +40,7 @@
   
 
 <p align="center">
+Bootstrapped with https://www.npmjs.com/package/react-component-lib-boilerplate
 
 A collection of components, hooks and patterns to easily build react applications
 
