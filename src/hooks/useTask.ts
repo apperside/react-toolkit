@@ -1,9 +1,5 @@
-import { ThunkAction } from "@reduxjs/toolkit";
-import { useDispatch } from 'react-redux';
-import { apiRequest } from "src/networking/httpManager";
-import { useOperationStatus } from ".";
 import objHash from "object-hash";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 
 export type OperationStatus = "idle" | "loading" | "success" | "error"
 export type OperationInfo = { status: "idle" } | { status: "loading" } | { status: "success", data: any } | { status: "error", error: any };
