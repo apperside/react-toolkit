@@ -1,5 +1,5 @@
 import React from 'react';
-import darkTheme, { baseTheme, customTheme, ThemeProvider } from '../ui/theme';
+import { baseTheme, ThemeProvider } from '../ui/theme';
 
 export function withTheme<P>(WrappedComponent: React.ComponentType<P>): React.FC<P> {
     const ComponentWithTheme = (props: P) => {
