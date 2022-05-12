@@ -1,13 +1,11 @@
 import React, { useMemo } from "react";
-import { PropsOf } from "src/typeUtils";
-import { StyledComponent, DefaultTheme } from "styled-components";
-
-import { useTheme } from "styled-components";
+import { PropsOf } from "../../../typeUtils";
+import { DefaultTheme, StyledComponent, useTheme } from "styled-components";
 import { ButtonProps, ThemedButton } from "./Button.styled";
 import { Loader } from "../Loader/Loader";
 import { Asset, AssetName } from "../Asset";
 import Text from "../Text/Text";
-// import deepmerge from "deepmerge";
+import deepmerge from "deepmerge";
 /**
  * Button UI component for user interaction
  */
@@ -36,11 +34,11 @@ export const BaseButtonComponent: React.FC<
     return variants[variant]!;
   }, [buttonTheme, variant]);
 
-  //   const buttonThemeProps = useMemo(() => {
+  // const buttonThemeProps = useMemo(() => {
   //     const result = deepmerge(baseTheme, variantTheme, { clone: true });
-  //     console.log("button theme deep merge", result);
+  //     console.log("button theme deep merge", result)
   //     return result;
-  //   }, [baseTheme, variantTheme]);
+  // }, [baseTheme, variantTheme])
 
   const iconComponent = useMemo(() => {
     if (typeof icon === "string") {
@@ -69,25 +67,23 @@ export const BaseButtonComponent: React.FC<
     return props.children;
   }, [baseTheme.textStyle, label, props.children, variantTheme.textStyle]);
   return (
-    <ThemedButton {...baseTheme} {...variantTheme} {...props}>
-      <>
-        {isLoading && (
-          <Loader
-            style={{ alignSelf: "center", justifyContent: "center" }}
-            message=" "
-            loaderSize={14}
-            textSize={14}
-          />
-        )}
-        {!isLoading && !!icon && iconPosition === "left" && iconComponent}
-        {!isLoading && customChildren}
-        {!isLoading && !!icon && iconPosition === "right" && iconComponent}
-      </>
+    <ThemedButton {...baseTheme} variant={variant} {...props}>
+      {isLoading && (
+        <Loader
+          style={{ alignSelf: "center", justifyContent: "center" }}
+          message=" "
+          loaderSize={14}
+          textSize={14}
+        />
+      )}
+      {!isLoading && !!icon && iconPosition === "left" && iconComponent}
+      {!isLoading && customChildren}
+      {!isLoading && !!icon && iconPosition === "right" && iconComponent}
     </ThemedButton>
   );
 };
 
-export const Button = BaseButtonComponent as unknown as StyledComponent<
+export const Button = BaseButtonComponent as StyledComponent<
   "button",
   DefaultTheme,
   PropsOf<typeof ThemedButton> & ButtonProps,
