@@ -67,7 +67,7 @@ export const BaseButtonComponent: React.FC<
     return props.children;
   }, [baseTheme.textStyle, label, props.children, variantTheme.textStyle]);
   return (
-    <ThemedButton {...baseTheme} variant={variant} {...props}>
+    <ThemedButton {...baseTheme} {...variantTheme} {...props}>
       {isLoading && (
         <Loader
           style={{ alignSelf: "center", justifyContent: "center" }}

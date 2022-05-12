@@ -5,7 +5,8 @@ exports[`Button handles onClick 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM cOQJuI"
+      class="sc-bdnxRM MuCWn"
+      color="white"
       id="mybutton"
     >
       <span
@@ -26,7 +27,8 @@ exports[`Button renders a default button with text 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM cOQJuI"
+      class="sc-bdnxRM MuCWn"
+      color="white"
       id="mybutton"
     >
       <span
@@ -47,7 +49,30 @@ exports[`Button renders a primary button 1`] = `
   <div>
      
     <button
-      class="sc-bdnxRM cOQJuI"
+      class="sc-bdnxRM MuCWn"
+      color="white"
+      id="mybutton"
+    >
+      <span
+        class="sc-hKFxyN hHAztA"
+        color="white"
+        font-size="medium"
+      >
+        Click me
+      </span>
+    </button>
+     
+  </div>
+</body>
+`;
+
+exports[`Button renders a primary overriden button 1`] = `
+<body>
+  <div>
+     
+    <button
+      class="sc-bdnxRM bqOZdb"
+      color="white"
       id="mybutton"
     >
       <span
