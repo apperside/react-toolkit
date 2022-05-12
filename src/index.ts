@@ -2,7 +2,7 @@ import * as CSS from "csstype";
 
 
 export * from "./ui";
-export * from "./hooks";
+
 export { ThemeProvider } from 'src/ui/theme';
 
 
