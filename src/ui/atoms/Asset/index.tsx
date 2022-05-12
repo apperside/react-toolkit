@@ -1,24 +1,16 @@
 export { Asset } from "./Asset";
-console.log("process 2", process.cwd())
-export interface AppImages {
 
-}
+export interface AppImages {}
 
-export let icons = {
+export let icons = {};
 
-}
-
-
-export type AssetName = keyof AppImages
-
-
-
+export type AssetName = keyof AppImages;
 
 const updateAssets = (assets: { [key: string]: any }) => {
-	icons = { ...assets }
+  icons = { ...assets };
 };
 
 export const AssetsUtils = {
-	updateAssets
-}
+  updateAssets,
+};
 
