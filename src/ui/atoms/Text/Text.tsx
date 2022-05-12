@@ -18,17 +18,6 @@ const BaseTextComponent: React.FC<PropsOf<typeof ThemedText> & TextProps> = ({
     return restOfTheme;
   }, [textTheme]);
 
-  // const variantTheme = useMemo(() => {
-  //     const { variants, ...restOfTheme } = textTheme;
-  //     return variants[variant]!;
-  // }, [textTheme, variant])
-
-  // const textThemeProps = useMemo(() => {
-  //     const result = deepmerge(baseTheme, variantTheme, { clone: true });
-  //     console.log("button theme deep merge", result)
-  //     return result;
-  // }, [baseTheme, variantTheme])
-
   const finalStyle = useMemo(() => {
     if (underlined) {
       return { textDecoration: "underline", ...style };
